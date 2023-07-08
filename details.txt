@@ -1,0 +1,21 @@
+'''
+                                        This is a Brain Teaser Game Project
+    This would have "count-down" time frame. 
+    Key guides:
+    Stage 1 - 5:
+        1:
+        Question 1-10 (Easy) example: Question_1: 2 ** 3 = ? 
+        2:
+        Question 1-10 (Semi-Easy) example: Question_1: 2 + 3 = ?
+        3:
+        Question 1-10 (Medium-easy) example: Question_1: 5 - 3 = ?
+        4:
+        Question 1-10 (Hard) example: Question_1: 2 * 3 = ?
+        5:
+        Question 1-10 (Very Hard) example: Question_1: 10 % 3 = ?
+    Scoring:
+        Score would be awarded to user for each stage and level.
+    
+    Things to implement:
+        Random operators for each question(Stage 1-5)
+'''
