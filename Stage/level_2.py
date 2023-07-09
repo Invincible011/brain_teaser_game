@@ -15,11 +15,11 @@ def level_2(self):
                     answer = num_1 + num_2
                     self.userinput = int(input("Question_{2}: {0} + {1} =? ".format(num_1, num_2, num_of_ques)))
                     if self.userinput == answer:
-                        self.score += 10
+                        self.score += 5
                         print("\nTHE  A N S W E R  IS  C O R R E C T\n")
                         print(self.display_score())
                     else:
-                        self.score -= 5
+                        self.score -= 3
                         print(f"\nTHE  A N S W E R  IS  I N C O R R E C T\nTHE CORRECT ANSWER IS {answer}\n")
                         print(self.display_score())
 
@@ -28,46 +28,22 @@ def level_2(self):
                     answer = num_1 - num_2
                     self.userinput = int(input("Question_{2}: {0} - {1} =? ".format(num_1, num_2, num_of_ques)))
                     if self.userinput == answer:
-                        self.score += 10
+                        self.score += 5
                         print("\nTHE  A N S W E R  IS  C O R R E C T\n")
                         print(self.display_score())
                     else:
-                        self.score -= 5
+                        self.score -= 3
                         print(f"\nTHE  A N S W E R  IS  I N C O R R E C T\nTHE CORRECT ANSWER IS {answer}\n")
                         print(self.display_score())
                 case 3:
                     answer = num_1 * num_2
                     self.userinput = int(input("Question_{2}: {0} * {1} =? ".format(num_1, num_2, num_of_ques)))
                     if self.userinput == answer:
-                        self.score += 10
+                        self.score += 5
                         print("\nTHE  A N S W E R  IS  C O R R E C T\n")
                         print(self.display_score())
                     else:
-                        self.score -= 5
-                        print(f"\nTHE  A N S W E R  IS  I N C O R R E C T\nTHE CORRECT ANSWER IS {answer}\n")
-                        print(self.display_score())
-
-                case 4:
-                    answer = num_1 ** num_2
-                    self.userinput = int(input("Question_{2}: {0} ^ {1} =? ".format(num_1, num_2, num_of_ques)))
-                    if self.userinput == answer:
-                        self.score += 10
-                        print("\nTHE  A N S W E R  IS  C O R R E C T\n")
-                        print(self.display_score())
-                    else:
-                        self.score -= 5
-                        print(f"\nTHE  A N S W E R  IS  I N C O R R E C T\nTHE CORRECT ANSWER IS {answer}\n")
-                        print(self.display_score())
-
-                case 5:
-                    answer = num_1 / num_2
-                    self.userinput = float(input("Question_{2}: {0} / {1} =? ".format(num_1, num_2, num_of_ques)))
-                    if self.userinput == answer:
-                        self.score += 10
-                        print("\nTHE  A N S W E R  IS  C O R R E C T\n")
-                        print(self.display_score())
-                    else:
-                        self.score -= 5
+                        self.score -= 3
                         print(f"\nTHE  A N S W E R  IS  I N C O R R E C T\nTHE CORRECT ANSWER IS {answer}\n")
                         print(self.display_score())
 
