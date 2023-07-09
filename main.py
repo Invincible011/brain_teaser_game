@@ -39,27 +39,22 @@ class Game:
         print(self.startup_info())
 
     def display_score(self):
-        return f"Your Score is {self.score}"
-
-
-    def close(self):
-        pass  
+        return f"Y o u r  S c o r e  i s: {self.score}"
 
 
 class Stage(Game):
 
     userinput = 0
-    num_of_quest = [1,2,3,4,5,6,7,8,9,10]
 
     def __init__(self):
         super().__init__()
         self.level = 0
     
-    from level_1 import level_1
-    from level_2 import level_2
-    from level_3 import level_3
-    from level_4 import level_4
-    from level_5 import level_5
+    from Stage.Easy.level_1 import level_1
+    from Stage.Easy.level_2 import level_2
+    from Stage.Easy.level_3 import level_3
+    from Stage.Easy.level_4 import level_4
+    from Stage.Easy.level_5 import level_5
 
 
 if __name__ == "__main__":
