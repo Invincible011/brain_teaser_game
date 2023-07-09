@@ -2,10 +2,10 @@ import random as rd
 
 def level_5(self):
     print(f"\t\t\t\t A T  T H E  E N D  O F  L E V E L  4,  Y O U R  S C O R E  I S:  {self.score}")
-    self.level = int(input("\t\t\t\t\t<<<<< Press 5 to start the level 5?  >>>>>"))
+    self.level = int(input("\t\t\t\t\t<<<<< Press 5 to start level 5?  >>>>>\n"))
     while self.level == 5:
         print("\n\t\t\t\t\t\tW e l c o m e  t o  L e v e l  1\n")
-        for num_of_ques in self.num_of_quest:
+        for num_of_ques in range(1, 11):
             num_1 = rd.randint(20, 25)
             num_2 = rd.randint(5, 10)
             operator = rd.randint(1, 5)
@@ -16,11 +16,11 @@ def level_5(self):
                     self.userinput = int(input("Question_{2}: {0} + {1} =? ".format(num_1, num_2, num_of_ques)))
                     if self.userinput == answer:
                         self.score += 10
-                        print("\nTHE  A N S W E R  IS  C O R R E C T\n")
+                        print("\nT H E  A N S W E R  IS  C O R R E C T\n")
                         print(self.display_score())
                     else:
                         self.score -= 5
-                        print(f"\nTHE  A N S W E R  IS  I N C O R R E C T\nTHE CORRECT ANSWER IS {answer}\n")
+                        print(f"\nT H E  A N S W E R  IS  I N C O R R E C T\nTHE CORRECT ANSWER IS {answer}\n")
                         print(self.display_score())
 
                 case 2:
@@ -28,11 +28,11 @@ def level_5(self):
                     self.userinput = int(input("Question_{2}: {0} - {1} =? ".format(num_1, num_2, num_of_ques)))
                     if self.userinput == answer:
                         self.score += 10
-                        print("\nTHE  A N S W E R  IS  C O R R E C T\n")
+                        print("\nT H E  A N S W E R  IS  C O R R E C T\n")
                         print(self.display_score())
                     else:
                         self.score -= 5
-                        print(f"\nTHE  A N S W E R  IS  I N C O R R E C T\nTHE CORRECT ANSWER IS {answer}\n")
+                        print(f"\nT H E  A N S W E R  IS  I N C O R R E C T\nTHE CORRECT ANSWER IS {answer}\n")
                         print(self.display_score())
 
                 case 3:
@@ -40,11 +40,11 @@ def level_5(self):
                     self.userinput = int(input("Question_{2}: {0} * {1} =? ".format(num_1, num_2, num_of_ques)))
                     if self.userinput == answer:
                         self.score += 10
-                        print("\nTHE  A N S W E R  IS  C O R R E C T\n")
+                        print("\nT H E  A N S W E R  IS  C O R R E C T\n")
                         print(self.display_score())
                     else:
                         self.score -= 5
-                        print(f"\nTHE  A N S W E R  IS  I N C O R R E C T\nTHE CORRECT ANSWER IS {answer}\n")
+                        print(f"\nT H E  A N S W E R  IS  I N C O R R E C T\nTHE CORRECT ANSWER IS {answer}\n")
                         print(self.display_score())
 
                 case 4:
@@ -52,11 +52,11 @@ def level_5(self):
                     self.userinput = int(input("Question_{2}: {0} ^ {1} =? ".format(num_1, num_2, num_of_ques)))
                     if self.userinput == answer:
                         self.score += 10
-                        print("\nTHE  A N S W E R  IS  C O R R E C T\n")
+                        print("\nT H E  A N S W E R  IS  C O R R E C T\n")
                         print(self.display_score())
                     else:
                         self.score -= 5
-                        print(f"\nTHE  A N S W E R  IS  I N C O R R E C T\nTHE CORRECT ANSWER IS {answer}\n")
+                        print(f"\nT H E  A N S W E R  IS  I N C O R R E C T\nTHE CORRECT ANSWER IS {answer}\n")
                         print(self.display_score())
 
                 case 5:
@@ -64,11 +64,11 @@ def level_5(self):
                     self.userinput = float(input("Question_{2}: {0} / {1} =? ".format(num_1, num_2, num_of_ques)))
                     if self.userinput == answer:
                         self.score += 10
-                        print("\nTHE  A N S W E R  IS  C O R R E C T\n")
+                        print("\nT H E  A N S W E R  IS  C O R R E C T\n")
                         print(self.display_score())
                     else:
                         self.score -= 5
-                        print(f"\nTHE  A N S W E R  IS  I N C O R R E C T\nTHE CORRECT ANSWER IS {answer}\n")
+                        print(f"\nT H E  A N S W E R  IS  I N C O R R E C T\nTHE CORRECT ANSWER IS {answer}\n")
                         print(self.display_score())
         
             if num_of_ques == 10:
