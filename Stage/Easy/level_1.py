@@ -4,7 +4,7 @@ def level_1(self):
     self.validate_user()
     print(f"\t\t\t A T  T H E  B E G I N N I N G  O F  L E V E L  1,  Y O U R  S C O R E  I S:  {self.score}")
     self.level = int(input("\n\t\t\t\t\t<<<<< Press 1 to start the  G A M E?  >>>>>\n"))
-    while self.level == 1:
+    if self.level == 1:
         print("\n\t\t\t\t\t\tW e l c o m e  t o  L e v e l  1\n")
         for num_of_ques in range(1, 11):
             num_1 = rd.randint(1, 3)

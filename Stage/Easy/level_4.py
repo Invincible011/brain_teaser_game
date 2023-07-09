@@ -4,7 +4,7 @@ def level_4(self):
     print(f"\t\t\t\t A T  T H E  E N D  O F  L E V E L  3,  Y O U R  S C O R E  I S:  {self.score}")
     self.level = int(input("\t\t\t\t\t<<<<< Press 4 to start level 4?  >>>>>\n"))
     while self.level == 4:
-        print("\n\t\t\t\t\t\tW e l c o m e  t o  L e v e 4  1\n")
+        print("\n\t\t\t\t\t\tW e l c o m e  t o  L e v e l  4\n")
         for num_of_ques in range(1, 11):
             num_1 = rd.randint(1, 15)
             num_2 = rd.randint(1, 4)
@@ -72,4 +72,4 @@ def level_4(self):
                         print(self.display_score())
         
             if num_of_ques == 10:
-                self.level_4()
+                self.level_5()
