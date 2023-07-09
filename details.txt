@@ -17,5 +17,5 @@
         Score would be awarded to user for each stage and level.
     
     Things to implement:
-        Random operators for each question(Stage 1-5)
+        Random operators for each question(Stage - Easy - Medium and - Hard)
 '''
