@@ -11,7 +11,7 @@ def level_2(self):
             operator = rd.randint(1, 3)
             
             match operator:
-                case 1:
+                case 1: 
                     answer = num_1 + num_2
                     self.userinput = int(input("Question_{2}: {0} + {1} =? ".format(num_1, num_2, num_of_ques)))
                     if self.userinput == answer:
