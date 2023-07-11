@@ -2,7 +2,7 @@ import random as rd
 
 def level_2(self):
     print(f"\t\t\t\t A T  T H E  E N D  O F  L E V E L  1,  Y O U R  S C O R E  I S:  {self.score}")
-    self.level = int(input("\t\t\t\t\t<<<<< Press 2 to start level 2?  >>>>>\n"))
+    self.level = int(input("\t\t\t\t\t<<<<< Press 2 to start  L E V E L  2?  >>>>>\n"))
     if self.level == 2:
         print("\t\t\t\t\t\tW e l c o m e  t o  L e v e l  2\n")
         for num_of_ques in range(1, 11):
