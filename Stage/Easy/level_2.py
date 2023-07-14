@@ -23,7 +23,6 @@ def level_2(self):
                         print(f"\nT H E  A N S W E R  IS  I N C O R R E C T\nTHE CORRECT ANSWER IS = {answer}\n")
                         print(self.display_score())
 
-
                 case 2:
                     answer = num_1 - num_2
                     self.userinput = int(input("Question_{2}: {0} - {1} =? ".format(num_1, num_2, num_of_ques)))
@@ -35,6 +34,7 @@ def level_2(self):
                         self.score -= 3
                         print(f"\nT H E  A N S W E R  IS  I N C O R R E C T\nTHE CORRECT ANSWER IS = {answer}\n")
                         print(self.display_score())
+                        
                 case 3:
                     answer = num_1 * num_2
                     self.userinput = int(input("Question_{2}: {0} * {1} =? ".format(num_1, num_2, num_of_ques)))
