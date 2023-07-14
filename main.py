@@ -7,6 +7,7 @@ class Game:
     
     def __init__(self):
         self.counter = 0
+        self.level = 0
     
     @staticmethod
     def clean():
@@ -44,19 +45,31 @@ class Game:
 
 class Stage(Game):
 
-    userinput = 0
-
     def __init__(self):
         super().__init__()
         self.level = 0
+        self.userinput = 0
     
-    from Stage.Easy.level_1 import level_1
-    from Stage.Easy.level_2 import level_2
-    from Stage.Easy.level_3 import level_3
-    from Stage.Easy.level_4 import level_4
-    from Stage.Easy.level_5 import level_5
+    from Stage.Easy.level_1 import easy_level_1
+    from Stage.Easy.level_2 import easy_level_2
+    from Stage.Easy.level_3 import easy_level_3
+    from Stage.Easy.level_4 import easy_level_4
+    from Stage.Easy.level_5 import easy_level_5
+    
+    from Stage.Medium.level_1 import level_1
+    from Stage.Medium.level_2 import level_2
+    from Stage.Medium.level_3 import level_3
+    from Stage.Medium.level_4 import level_4
+    from Stage.Medium.level_5 import level_5
+
+    from Stage.Hard.level_1 import hard_level_1
+    from Stage.Hard.level_2 import hard_level_2
+    from Stage.Hard.level_3 import hard_level_3
+    from Stage.Hard.level_4 import hard_level_4
+    from Stage.Hard.level_5 import hard_level_5
+
 
 
 if __name__ == "__main__":
     gm = Stage()
-    gm.level_1()
+    gm.easy_level_1()
