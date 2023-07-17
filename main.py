@@ -6,6 +6,7 @@ class Game:
     score = 0
     
     def __init__(self):
+        self.time = int(timer.now().strftime("%H"))
         self.counter = 0
         self.level = 0
     
@@ -18,7 +19,6 @@ class Game:
         return "\t\t\t\t***W E L C O M E  T O  B R A I N  T E A S E R  G A M E***\n\n"
 
     def user_details(self):
-        self.time = int(timer.now().strftime("%H"))
         self.username = input("Enter your Username? ").upper()
 
 
@@ -30,9 +30,6 @@ class Game:
             return f'\n\t\t\t\t\t\tG o o d  A f t e r n o o n: "{self.username}"'
         else: 
             return f'\n\t\t\t\t\t\tG o o d  E v e n i n g: "{self.username}"'
-    
-    def _initialise_timer(self):
-        pass
 
     def validate_user(self):
         print(self.startup_message())
