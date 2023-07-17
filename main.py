@@ -25,11 +25,11 @@ class Game:
     # Username and Score should be displayed at the top of the Game for easy visibility
     def startup_info(self):        
         if self.time < 12:
-            return f'\n\t\t\t\t\t\tG o o d  M o r n i n g: {self.username}'
+            return f'\n\t\t\t\t\t\tG o o d  M o r n i n g: "{self.username}"'
         elif self.time <= 15:
-            return f'\n\t\t\t\t\t\tG o o d  A f t e r n o o n: {self.username}'
+            return f'\n\t\t\t\t\t\tG o o d  A f t e r n o o n: "{self.username}"'
         else: 
-            return f'\n\t\t\t\t\t\tG o o d  E v e n i n g: {self.username}'
+            return f'\n\t\t\t\t\t\tG o o d  E v e n i n g: "{self.username}"'
     
     def _initialise_timer(self):
         pass

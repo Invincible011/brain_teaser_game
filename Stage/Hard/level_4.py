@@ -20,7 +20,7 @@ def hard_level_4(self):
                         print(self.display_score())
                     else:
                         self.score -= 4
-                        print(f"\nT H E  A N S W E R  IS  I N C O R R E C T\nTHE CORRECT ANSWER IS = {answer}\n")
+                        print(f"\nT H E  A N S W E R  IS  I N C O R R E C T\nT H E  C O R R E C T  A N S W E R  I S = {answer}\n")
                         print(self.display_score())
 
                 case 2:
@@ -32,7 +32,7 @@ def hard_level_4(self):
                         print(self.display_score())
                     else:
                         self.score -= 4
-                        print(f"\nT H E  A N S W E R  IS  I N C O R R E C T\nTHE CORRECT ANSWER IS = {answer}\n")
+                        print(f"\nT H E  A N S W E R  IS  I N C O R R E C T\nT H E  C O R R E C T  A N S W E R  I S = {answer}\n")
                         print(self.display_score())
 
                 case 3:
@@ -44,7 +44,7 @@ def hard_level_4(self):
                         print(self.display_score())
                     else:
                         self.score -= 4
-                        print(f"\nT H E  A N S W E R  IS  I N C O R R E C T\nTHE CORRECT ANSWER IS = {answer}\n")
+                        print(f"\nT H E  A N S W E R  IS  I N C O R R E C T\nT H E  C O R R E C T  A N S W E R  I S = {answer}\n")
                         print(self.display_score())
 
                 case 4:
@@ -56,7 +56,7 @@ def hard_level_4(self):
                         print(self.display_score())
                     else:
                         self.score -= 4
-                        print(f"\nT H E  A N S W E R  IS  I N C O R R E C T\nTHE CORRECT ANSWER IS = {answer}\n")
+                        print(f"\nT H E  A N S W E R  IS  I N C O R R E C T\nT H E  C O R R E C T  A N S W E R  I S = {answer}\n")
                         print(self.display_score())
 
                 case 5:
@@ -68,7 +68,7 @@ def hard_level_4(self):
                         print(self.display_score())
                     else:
                         self.score -= 5
-                        print(f"\nT H E  A N S W E R  IS  I N C O R R E C T\nTHE CORRECT ANSWER IS = {answer}\n")
+                        print(f"\nT H E  A N S W E R  IS  I N C O R R E C T\nT H E  C O R R E C T  A N S W E R  I S = {answer}\n")
                         print(self.display_score())
         
             if num_of_ques == 20:

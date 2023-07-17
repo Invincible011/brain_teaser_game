@@ -21,7 +21,7 @@ def easy_level_1(self):
                         print(self.display_score())
                     else:
                         self.score -= 3
-                        print(f"\nT H E  A N S W E R  IS  I N C O R R E C T\nTHE CORRECT ANSWER IS = {answer}\n")
+                        print(f"\nT H E  A N S W E R  IS  I N C O R R E C T\nT H E  C O R R E C T  A N S W E R  I S = {answer}\n")
                         print(self.display_score())
 
                 case 2:
@@ -33,7 +33,7 @@ def easy_level_1(self):
                         print(self.display_score())
                     else:
                         self.score -= 3
-                        print(f"\nT H E  A N S W E R  IS  I N C O R R E C T\nTHE CORRECT ANSWER IS = {answer}\n")
+                        print(f"\nT H E  A N S W E R  IS  I N C O R R E C T\nT H E  C O R R E C T  A N S W E R  I S = {answer}\n")
                         print(self.display_score())
         
             if num_of_ques == 10:

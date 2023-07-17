@@ -20,7 +20,7 @@ def level_5(self):
                         print(self.display_score())
                     else:
                         self.score -= 5
-                        print(f"\nT H E  A N S W E R  IS  I N C O R R E C T\nTHE CORRECT ANSWER IS {answer}\n")
+                        print(f"\nT H E  A N S W E R  IS  I N C O R R E C T\nT H E  C O R R E C T  A N S W E R  I S = {answer}\n")
                         print(self.display_score())
 
                 case 2:
@@ -32,7 +32,7 @@ def level_5(self):
                         print(self.display_score())
                     else:
                         self.score -= 5
-                        print(f"\nT H E  A N S W E R  IS  I N C O R R E C T\nTHE CORRECT ANSWER IS {answer}\n")
+                        print(f"\nT H E  A N S W E R  IS  I N C O R R E C T\nT H E  C O R R E C T  A N S W E R  I S = {answer}\n")
                         print(self.display_score())
 
                 case 3:
@@ -44,7 +44,7 @@ def level_5(self):
                         print(self.display_score())
                     else:
                         self.score -= 5
-                        print(f"\nT H E  A N S W E R  IS  I N C O R R E C T\nTHE CORRECT ANSWER IS {answer}\n")
+                        print(f"\nT H E  A N S W E R  IS  I N C O R R E C T\nT H E  C O R R E C T  A N S W E R  I S = {answer}\n")
                         print(self.display_score())
 
                 case 4:
@@ -56,7 +56,7 @@ def level_5(self):
                         print(self.display_score())
                     else:
                         self.score -= 5
-                        print(f"\nT H E  A N S W E R  IS  I N C O R R E C T\nTHE CORRECT ANSWER IS {answer}\n")
+                        print(f"\nT H E  A N S W E R  IS  I N C O R R E C T\nT H E  C O R R E C T  A N S W E R  I S = {answer}\n")
                         print(self.display_score())
 
                 case 5:
@@ -68,11 +68,11 @@ def level_5(self):
                         print(self.display_score())
                     else:
                         self.score -= 5
-                        print(f"\nT H E  A N S W E R  IS  I N C O R R E C T\nTHE CORRECT ANSWER IS {answer}\n")
+                        print(f"\nT H E  A N S W E R  IS  I N C O R R E C T\nT H E  C O R R E C T  A N S W E R  I S = {answer}\n")
                         print(self.display_score())
         
             if num_of_ques == 20:
                 print(f"A T  T H E  E N D  O F  M E D I U M  D I F F I C U L T Y  L E V E L  {self.level}\n{self.display_score()}")
-                self.level = int(input("\t\t\t\t\t<<<<< Press 1 to start move to the next stage(H A R D) level 1?  >>>>>\n"))
+                self.level = int(input("\t\t\t\t\t<<<<< P r e s s  1  t o  c o n t i n u e  p l a y i n g >>>>>\n"))
                 if self.level == 1:
                     self.hard_level_1()

@@ -1,7 +1,7 @@
 import random as rd
 
 def level_1(self):
-    print("\t\t\tH e l l o  {}".format(self.username))
+    print("\t\t\t\t\t H e l l o  {}".format(self.username))
     print(f"\t\t\t A T  T H E  B E G I N N I N G  O F  M E D I U M  D I F F I C U L T Y  L E V E L  1,  Y O U R  S C O R E  I S:  {self.score}")
     self.level = int(input("\n\t\t\t\t\t<<<<< Press 1 to start the  G A M E >>>>>\n"))
     if self.level == 1:
@@ -21,7 +21,7 @@ def level_1(self):
                         print(self.display_score())
                     else:
                         self.score -= 3
-                        print(f"\nT H E  A N S W E R  IS  I N C O R R E C T\nTHE CORRECT ANSWER IS = {answer}\n")
+                        print(f"\nT H E  A N S W E R  IS  I N C O R R E C T\nT H E  C O R R E C T  A N S W E R  I S = {answer}\n")
                         print(self.display_score())
 
                 case 2:
@@ -33,10 +33,8 @@ def level_1(self):
                         print(self.display_score())
                     else:
                         self.score -= 3
-                        print(f"\nT H E  A N S W E R  IS  I N C O R R E C T\nTHE CORRECT ANSWER IS = {answer}\n")
+                        print(f"\nT H E  A N S W E R  IS  I N C O R R E C T\nT H E  C O R R E C T  A N S W E R  I S = {answer}\n")
                         print(self.display_score())
         
             if num_of_ques == 20:
-                self.level = int(input("\t\t\t\t\t<<<<< Press 2 to move to the next stage(MEDIUM) level 2?  >>>>>\n"))
-                if self.level == 1:
-                    self.level_2()
+                self.level_2()

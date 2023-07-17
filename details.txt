@@ -48,5 +48,5 @@
                                         )
     Scoring:
         Score would be awarded to user for each stage and level.
-        if the answer is correct then (-2, -3, and -5 respectively) is deducted from individual stage in levels.
+        if the answer is not correct then (-2, -3, and -5 respectively) is deducted from individual stage in levels.
 '''
