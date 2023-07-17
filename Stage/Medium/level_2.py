@@ -13,7 +13,7 @@ def level_2(self):
             match operator:
                 case 1:
                     answer = num_1 + num_2
-                    self.userinput = int(input("Question_ 2}: {0} + {1} =? ".format(num_1, num_2, num_of_ques)))
+                    self.userinput = int(input("Question {2}: {0} + {1} =? ".format(num_1, num_2, num_of_ques)))
                     if self.userinput == answer:
                         self.score += 5
                         print("\nT H E  A N S W E R  IS  C O R R E C T\n")
