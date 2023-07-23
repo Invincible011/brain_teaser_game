@@ -3,13 +3,19 @@ import os
 import random as rd
 
 class Game:
-
-    score = 0
     
-    def __init__(self):
+    def __init__(
+            self,
+            userinput = ' User',
+            score = 0,
+            counter = 0,
+            level = 0,
+            ):
+        self.userinput = userinput
+        self.score = score
+        self.counter = counter
+        self.level = level
         self.time = int(timer.now().strftime("%H"))
-        self.counter = 0
-        self.level = 0
     
     @staticmethod
     def clean():
@@ -20,17 +26,18 @@ class Game:
         return "\t\t\t\t***W E L C O M E  T O  B R A I N  T E A S E R  G A M E***\n\n"
 
     def user_details(self):
-        self.username = input("Enter your Username? ").upper()
-
+        self.userinput = input("Enter your Username? ").upper()
+        if self.userinput == "":
+            self.userinput = "USER"
 
     # Username and Score should be displayed at the top of the Game for easy visibility
     def startup_info(self):        
         if self.time < 12:
-            return f'\n\t\t\t\t\t\tG o o d  M o r n i n g: "{self.username}"'
+            return f'\n\t\t\t\t\t\tG o o d  M o r n i n g: "{self.userinput}"'
         elif self.time <= 15:
-            return f'\n\t\t\t\t\t\tG o o d  A f t e r n o o n: "{self.username}"'
+            return f'\n\t\t\t\t\t\tG o o d  A f t e r n o o n: "{self.userinput}"'
         else: 
-            return f'\n\t\t\t\t\t\tG o o d  E v e n i n g: "{self.username}"'
+            return f'\n\t\t\t\t\t\tG o o d  E v e n i n g: "{self.userinput}"'
 
     def validate_user(self):
         print(self.startup_message())
@@ -43,45 +50,53 @@ class Game:
 
 class Stage(Game):
 
-    def __init__(self):
-        super().__init__()
-        self.level = 0
-        self.userinput = 0
-        self.answer= 0
+    def __init__(
+            
+            self,
+            userinput = 'User',
+            score = 0,
+            counter = 0,
+            level = 0,
+            answer = 0
+            ):
+        
+        super().__init__(userinput=userinput, score=score, counter=counter, level=level)
+        self.answer= answer
 
+    # Score increment and decrement functions for reuseable.
     def decrement_score_by_3(self):
         self.score -= 3
-        print(f"\nT H E  A N S W E R  IS  I N C O R R E C T\nT H E  C O R R E C T  A N S W E R  I S = {self.answer}\n")
+        print(f"\nT H E  A N S W E R  I S  I N C O R R E C T\nT H E  C O R R E C T  A N S W E R  I S = {self.answer}\n")
         print(self.display_score())
 
 
     def decrement_score_by_4(self):
         self.score -= 4
-        print(f"\nT H E  A N S W E R  IS  I N C O R R E C T\nT H E  C O R R E C T  A N S W E R  I S = {self.answer}\n")
+        print(f"\nT H E  A N S W E R  I S  I N C O R R E C T\nT H E  C O R R E C T  A N S W E R  I S = {self.answer}\n")
         print(self.display_score())
 
     def decrement_score_by_5(self):
         self.score -= 5
-        print(f"\nT H E  A N S W E R  IS  I N C O R R E C T\nT H E  C O R R E C T  A N S W E R  I S = {self.answer}\n")
+        print(f"\nT H E  A N S W E R  I S  I N C O R R E C T\nT H E  C O R R E C T  A N S W E R  I S = {self.answer}\n")
         print(self.display_score())
 
     def increment_score_by_5(self):
         self.score += 5
-        print("\nT H E  A N S W E R  IS  C O R R E C T\n")
-    
-    def increment_score_by_10(self):
-        self.score += 10
-        print("\nT H E  A N S W E R  IS  C O R R E C T\n")
+        print("\nT H E  A N S W E R  I S  C O R R E C T\n")
         print(self.display_score())
 
+    def increment_score_by_10(self):
+        self.score += 10
+        print("\nT H E  A N S W E R  I S  C O R R E C T\n")
         print(self.display_score())
 
     def easy_level_1(self):
         self.validate_user()
         print(f"\t\t\t A T  T H E  B E G I N N I N G  O F  E A S Y  D I F F I C U L T Y  L E V E L  1,  Y O U R  S C O R E  I S:  {self.score}")
-        self.level = int(input("\n\t\t\t\t\t<<<<< Press 1 to start the  G A M E?  >>>>>\n"))
-        if self.level == 1:
+        self.level = (input("\n\t\t\t\t\t<<<<< Press 1 or enter to start the  G A M E  >>>>>\n"))
+        if self.level == "" or self.level == str(1):
             print("\n\t\t\t\t\t\tW e l c o m e  t o  E A S Y  D I F F I C U L T Y  L e v e l  {}\n".format(self.level))
+            self.level = 1
             for num_of_ques in range(1, 11):
                 num_1 = rd.randint(1, 3)
                 num_2 = rd.randint(1, 2)
@@ -756,7 +771,7 @@ class Stage(Game):
             
                 if num_of_ques == 20:
                     print(f"A T  T H E  E N D  O F  H A R D  D I F F I C U L T Y  L E V E L  {self.level}\n{self.display_score()}")
-                    self.level = int(input("\t\t\t\t\t<<<<< Do you want to restart the game again?  >>>>>\n"))
+                    self.level = int(input("\t\t\t\t\t<<<<< Do you want to restart the game again? if YES press 1 otherwise press any key  >>>>>\n"))
                     if self.level == 1:
                         self.level_1()
                     else:
