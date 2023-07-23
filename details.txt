@@ -1,5 +1,7 @@
 '''
                                         This is a Brain Teaser Game Project
+    
+    Refractor the code, any reuseable code should be invoked when needed, avoid repetition.
 
     This would have "count-down" time frame. 
     Key guides:
