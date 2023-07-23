@@ -1,5 +1,6 @@
 from datetime import datetime as timer
 import os
+import random as rd
 
 class Game:
 
@@ -46,13 +47,262 @@ class Stage(Game):
         super().__init__()
         self.level = 0
         self.userinput = 0
+        self.answer= 0
+
+    def decrement_score_by_3(self):
+        self.score -= 3
+        print(f"\nT H E  A N S W E R  IS  I N C O R R E C T\nT H E  C O R R E C T  A N S W E R  I S = {self.answer}\n")
+        print(self.display_score())
+
+
+    def decrement_score_by_4(self):
+        self.score -= 4
+        print(f"\nT H E  A N S W E R  IS  I N C O R R E C T\nT H E  C O R R E C T  A N S W E R  I S = {self.answer}\n")
+        print(self.display_score())
+
+    def decrement_score_by_5(self):
+        self.score -= 5
+        print(f"\nT H E  A N S W E R  IS  I N C O R R E C T\nT H E  C O R R E C T  A N S W E R  I S = {self.answer}\n")
+        print(self.display_score())
+
+    def increment_score_by_5(self):
+        self.score += 5
+        print("\nT H E  A N S W E R  IS  C O R R E C T\n")
     
-    from Stage.Easy.level_1 import easy_level_1
-    from Stage.Easy.level_2 import easy_level_2
-    from Stage.Easy.level_3 import easy_level_3
-    from Stage.Easy.level_4 import easy_level_4
-    from Stage.Easy.level_5 import easy_level_5
-    
+    def increment_score_by_10(self):
+        self.score += 10
+        print("\nT H E  A N S W E R  IS  C O R R E C T\n")
+        print(self.display_score())
+
+        print(self.display_score())
+
+    def easy_level_1(self):
+        self.validate_user()
+        print(f"\t\t\t A T  T H E  B E G I N N I N G  O F  E A S Y  D I F F I C U L T Y  L E V E L  1,  Y O U R  S C O R E  I S:  {self.score}")
+        self.level = int(input("\n\t\t\t\t\t<<<<< Press 1 to start the  G A M E?  >>>>>\n"))
+        if self.level == 1:
+            print("\n\t\t\t\t\t\tW e l c o m e  t o  E A S Y  D I F F I C U L T Y  L e v e l  {}\n".format(self.level))
+            for num_of_ques in range(1, 11):
+                num_1 = rd.randint(1, 3)
+                num_2 = rd.randint(1, 2)
+                operator = rd.randint(1, 2)
+                
+                match operator:
+                    case 1:
+                        self.answer = num_1 + num_2
+                        self.userinput = int(input("Question {2}: {0} + {1} =? ".format(num_1, num_2, num_of_ques)))
+                        if self.userinput == self.answer:
+                            self.increment_score_by_5()
+                        else:
+                            self.decrement_score_by_3()
+
+                    case 2:
+                        self.answer = num_1 - num_2
+                        self.userinput = int(input("Question {2}: {0} - {1} =? ".format(num_1, num_2, num_of_ques)))
+                        if self.userinput == self.answer:
+                            self.increment_score_by_5()
+                        else:
+                            self.decrement_score_by_3()
+            
+                if num_of_ques == 10:
+                    self.easy_level_2()
+
+    def easy_level_2(self):
+        print(f"\t\t\t\t A T  T H E  E N D  O F  E A S Y  D I F F I C U L T Y  L E V E L  {self.level},  Y O U R  S C O R E  I S:  {self.score}")
+        self.level = int(input("\t\t\t\t\t<<<<< Press 2 to start  L E V E L  2?  >>>>>\n"))
+        if self.level == 2:
+            print("\n\t\t\t\t\t\tW e l c o m e  t o  E A S Y  D I F F I C U L T Y  L e v e l  {}\n".format(self.level))
+            for num_of_ques in range(1, 11):
+                num_1 = rd.randint(1, 5)
+                num_2 = rd.randint(1, 3)
+                operator = rd.randint(1, 3)
+                
+                match operator:
+                    case 1:
+                        self.answer = num_1 + num_2
+                        self.userinput = int(input("Question_ {2}: {0} + {1} =? ".format(num_1, num_2, num_of_ques)))
+                        if self.userinput == self.answer:
+                            self.increment_score_by_5()
+                        else:
+                            self.decrement_score_by_3()
+
+                    case 2:
+                        self.answer = num_1 - num_2
+                        self.userinput = int(input("Question {2}: {0} - {1} =? ".format(num_1, num_2, num_of_ques)))
+                        if self.userinput == self.answer:
+                            self.increment_score_by_5()
+                        else:
+                            self.decrement_score_by_3()
+
+                    case 3:
+                        self.answer = num_1 * num_2
+                        self.userinput = int(input("Question {2}: {0} * {1} =? ".format(num_1, num_2, num_of_ques)))
+                        if self.userinput == self.answer:
+                            self.increment_score_by_5()
+                        else:
+                            self.decrement_score_by_3()
+
+                if num_of_ques == 10:
+                    self.easy_level_3()
+                
+    def easy_level_3(self):
+        print(f"\t\t\t\t A T  T H E  E N D  O F  E A S Y  D I F F I C U L T Y  L E V E L  {self.level},  Y O U R  S C O R E  I S:  {self.score}")
+        self.level = int(input("\t\t\t\t\t<<<<< Press 3 to start  L E V E L  3?  >>>>>\n"))
+        if self.level == 3:
+            print("\n\t\t\t\t\t\tW e l c o m e  t o  E A S Y  D I F F I C U L T Y  L e v e l  {}\n".format(self.level))
+            for num_of_ques in range(1, 11):
+                num_1 = rd.randint(1, 10)
+                num_2 = rd.randint(1, 4)
+                operator = rd.randint(1, 4)
+                
+                match operator:
+                    case 1:
+                        self.answer = num_1 + num_2
+                        self.userinput = int(input("Question {2}: {0} + {1} =? ".format(num_1, num_2, num_of_ques)))
+                        if self.userinput == self.answer:
+                            self.increment_score_by_5()
+                        else:
+                            self.decrement_score_by_3()
+
+                    case 2:
+                        self.answer = num_1 - num_2
+                        self.userinput = int(input("Question {2}: {0} - {1} =? ".format(num_1, num_2, num_of_ques)))
+                        if self.userinput == self.answer:
+                            self.increment_score_by_5()
+                        else:
+                            self.decrement_score_by_3()
+
+                    case 3:
+                        self.answer = num_1 * num_2
+                        self.userinput = int(input("Question {2}: {0} * {1} =? ".format(num_1, num_2, num_of_ques)))
+                        if self.userinput == self.answer:
+                            self.increment_score_by_5()
+                        else:
+                            self.decrement_score_by_3()
+
+                    case 4:
+                        self.answer = num_1 / num_2
+                        self.userinput = float(input("Question {2}: {0} / {1} =? ".format(num_1, num_2, num_of_ques)))
+                        if self.userinput == self.answer:
+                            self.increment_score_by_5()
+                        else:
+                            self.decrement_score_by_3()
+            
+                if num_of_ques == 10:
+                    self.easy_level_4()
+        
+    def easy_level_4(self):
+        print(f"\t\t\t\t A T  T H E  E N D  O F  E A S Y  D I F F I C U L T Y  L E V E L  {self.level},  Y O U R  S C O R E  I S:  {self.score}")
+        self.level = int(input("\t\t\t\t\t<<<<< Press 4 to start  L E V E L  4?  >>>>>\n"))
+        if self.level == 4:
+            print("\n\t\t\t\t\t\tW e l c o m e  t o  E A S Y  D I F F I C U L T Y  L e v e l  {}\n".format(self.level))
+            for num_of_ques in range(1, 11):
+                num_1 = rd.randint(1, 15)
+                num_2 = rd.randint(1, 4)
+                operator = rd.randint(1, 5)
+                
+                match operator:
+                    case 1:
+                        self.answer = num_1 + num_2
+                        self.userinput = int(input("Question {2}: {0} + {1} =? ".format(num_1, num_2, num_of_ques)))
+                        if self.userinput == self.answer:
+                            self.increment_score_by_5()
+                        else:
+                            self.decrement_score_by_4()
+
+                    case 2:
+                        self.answer = num_1 - num_2
+                        self.userinput = int(input("Question {2}: {0} - {1} =? ".format(num_1, num_2, num_of_ques)))
+                        if self.userinput == self.answer:
+                            self.increment_score_by_5()
+                        else:
+                            self.decrement_score_by_4()
+
+                    case 3:
+                        self.answer = num_1 * num_2
+                        self.userinput = int(input("Question {2}: {0} * {1} =? ".format(num_1, num_2, num_of_ques)))
+                        if self.userinput == self.answer:
+                            self.increment_score_by_5()
+                        else:
+                            self.decrement_score_by_4()
+
+                    case 4:
+                        self.answer = num_1 ** num_2
+                        self.userinput = int(input("Question {2}: {0} ^ {1} =? ".format(num_1, num_2, num_of_ques)))
+                        if self.userinput == self.answer:
+                            self.increment_score_by_5()
+                        else:
+                            self.decrement_score_by_4()
+
+                    case 5:
+                        self.answer = num_1 / num_2
+                        self.userinput = float(input("Question {2}: {0} / {1} =? ".format(num_1, num_2, num_of_ques)))
+                        if self.userinput == self.answer:
+                            self.increment_score_by_10()
+                        else:
+                            self.decrement_score_by_5()
+            
+                if num_of_ques == 10:
+                    self.easy_level_5()
+
+    def easy_level_5(self):
+        print(f"\t\t\t\t A T  T H E  E N D  O F  E A S Y  D I F F I C U L T Y  L E V E L  {self.level},  Y O U R  S C O R E  I S:  {self.score}")
+        self.level = int(input("\t\t\t\t\t<<<<< Press 5 to start  L E V E L  5?  >>>>>\n"))
+        if self.level == 5:
+            print("\n\t\t\t\t\t\tW e l c o m e  t o  E A S Y  D I F F I C U L T Y  L e v e l  {}\n".format(self.level))
+            for num_of_ques in range(1, 11):
+                num_1 = rd.randint(1, 20)
+                num_2 = rd.randint(1, 5)
+                operator = rd.randint(1, 5)
+                
+                match operator:
+                    case 1:
+                        self.answer = num_1 + num_2
+                        self.userinput = int(input("Question {2}: {0} + {1} =? ".format(num_1, num_2, num_of_ques)))
+                        if self.userinput == self.answer:
+                            self.increment_score_by_10()
+                        else:
+                            self.decrement_score_by_5()
+
+                    case 2:
+                        self.answer = num_1 - num_2
+                        self.userinput = int(input("Question {2}: {0} - {1} =? ".format(num_1, num_2, num_of_ques)))
+                        if self.userinput == self.answer:
+                            self.increment_score_by_10()
+                        else:
+                            self.decrement_score_by_5()
+
+                    case 3:
+                        self.answer = num_1 * num_2
+                        self.userinput = int(input("Question {2}: {0} * {1} =? ".format(num_1, num_2, num_of_ques)))
+                        if self.userinput == self.answer:
+                            self.increment_score_by_10()
+                        else:
+                            self.decrement_score_by_5()
+
+                    case 4:
+                        self.answer = num_1 ** num_2
+                        self.userinput = int(input("Question {2}: {0} ^ {1} =? ".format(num_1, num_2, num_of_ques)))
+                        if self.userinput == self.answer:
+                            self.increment_score_by_10()
+                        else:
+                            self.decrement_score_by_5()
+
+                    case 5:
+                        self.answer = num_1 / num_2
+                        self.userinput = float(input("Question {2}: {0} / {1} =? ".format(num_1, num_2, num_of_ques)))
+                        if self.userinput == self.answer:
+                            self.increment_score_by_10()
+                        else:
+                            self.decrement_score_by_5()
+            
+                if num_of_ques == 10:
+                    print(f"A T  T H E  E N D  O F  L E V E L  {self.level} O F  E A S Y  D I F F I C U L T Y\n{self.display_score()}")
+                    self.level = int(input("\t\t\t\t\t<<<<< P r e s s  1  t o  c o n t i n u e  p l a y i n g >>>>>\n"))
+                    if self.level == 1:
+                        self.level_1()
+
+
     from Stage.Medium.level_1 import level_1
     from Stage.Medium.level_2 import level_2
     from Stage.Medium.level_3 import level_3
