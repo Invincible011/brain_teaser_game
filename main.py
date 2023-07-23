@@ -6,7 +6,7 @@ class Game:
     
     def __init__(
             self,
-            userinput = ' User',
+            userinput = '',
             score = 0,
             counter = 0,
             level = 0,
@@ -53,7 +53,7 @@ class Stage(Game):
     def __init__(
             
             self,
-            userinput = 'User',
+            userinput = '',
             score = 0,
             counter = 0,
             level = 0,
