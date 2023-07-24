@@ -51,7 +51,7 @@ class Game:
 class Stage(Game):
 
     def __init__(
-            
+
             self,
             userinput = '',
             score = 0,
@@ -68,7 +68,6 @@ class Stage(Game):
         self.score -= 3
         print(f"\nT H E  A N S W E R  I S  I N C O R R E C T\nT H E  C O R R E C T  A N S W E R  I S = {self.answer}\n")
         print(self.display_score())
-
 
     def decrement_score_by_4(self):
         self.score -= 4
@@ -91,6 +90,7 @@ class Stage(Game):
         print(self.display_score())
 
     def easy_level_1(self):
+        self.score = 0
         self.validate_user()
         print(f"\t\t\t A T  T H E  B E G I N N I N G  O F  E A S Y  D I F F I C U L T Y  L E V E L  1,  Y O U R  S C O R E  I S:  {self.score}")
         self.level = (input("\n\t\t\t\t\t<<<<< Press 1 or enter to start the  G A M E  >>>>>\n"))
@@ -128,7 +128,6 @@ class Stage(Game):
             else:
                 self.easy_level_1()
 
-
     def easy_level_2(self):
         print(f"\t\t\t\t A T  T H E  E N D  O F  E A S Y  D I F F I C U L T Y  L E V E L  {self.level},  Y O U R  S C O R E  I S:  {self.score}")
         self.level = int(input("\t\t\t\t\t<<<<< Press 2 to start  L E V E L  2?  >>>>>\n"))
@@ -165,7 +164,7 @@ class Stage(Game):
                             self.decrement_score_by_3()
 
                 if num_of_ques == 10:
-                    self.easy_level_3()
+                    self.easy_level_2()
                 
     def easy_level_3(self):
         print(f"\t\t\t\t A T  T H E  E N D  O F  E A S Y  D I F F I C U L T Y  L E V E L  {self.level},  Y O U R  S C O R E  I S:  {self.score}")
@@ -771,7 +770,7 @@ class Stage(Game):
             
                 if num_of_ques == 20:
                     print(f"A T  T H E  E N D  O F  H A R D  D I F F I C U L T Y  L E V E L  {self.level}\n{self.display_score()}")
-                    self.level = int(input("\t\t\t\t\t<<<<< Do you want to restart the game again? if YES press 1 otherwise press any key  >>>>>\n"))
+                    self.level = int(input("\t\t\t\t\t<<<<< Do you want to restart the game? if YES press 1 otherwise press any key to exit >>>>>\n"))
                     if self.level == 1:
                         self.level_1()
                     else:
