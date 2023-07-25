@@ -1,7 +1,11 @@
-from datetime import datetime as timer
 import os
 import random as rd
+from datetime import datetime as timer
 
+
+# This is a brain teaser game
+
+ 
 class Game:
     
     def __init__(
@@ -21,7 +25,7 @@ class Game:
     def clean():
         os.system('cls')
 
-    def startup_message(self):
+    def initialise(self):
         self.clean()
         return "\t\t\t\t***W E L C O M E  T O  B R A I N  T E A S E R  G A M E***\n\n"
 
@@ -39,8 +43,8 @@ class Game:
         else: 
             return f'\n\t\t\t\t\t\tG o o d  E v e n i n g: "{self.userinput}"'
 
-    def validate_user(self):
-        print(self.startup_message())
+    def show_details(self):
+        print(self.initialise())
         self.user_details()
         print(self.startup_info())
 
@@ -91,7 +95,7 @@ class Stage(Game):
 
     def easy_level_1(self):
         self.score = 0
-        self.validate_user()
+        self.show_details()
         print(f"\t\t\t A T  T H E  B E G I N N I N G  O F  E A S Y  D I F F I C U L T Y  L E V E L  1,  Y O U R  S C O R E  I S:  {self.score}")
         self.level = (input("\n\t\t\t\t\t<<<<< Press 1 or enter to start the  G A M E  >>>>>\n"))
         if self.level == "" or self.level == str(1):
@@ -164,7 +168,7 @@ class Stage(Game):
                             self.decrement_score_by_3()
 
                 if num_of_ques == 10:
-                    self.easy_level_2()
+                    self.easy_level_3()
                 
     def easy_level_3(self):
         print(f"\t\t\t\t A T  T H E  E N D  O F  E A S Y  D I F F I C U L T Y  L E V E L  {self.level},  Y O U R  S C O R E  I S:  {self.score}")
