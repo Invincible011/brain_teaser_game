@@ -1,13 +1,13 @@
 import os
 import random as rd
 from datetime import datetime as timer
+from typing import Any
 
 
 # This is a brain teaser game
 
- 
+
 class Game:
-    
     def __init__(
             self,
             userinput = '',
@@ -53,19 +53,16 @@ class Game:
 
 
 class Stage(Game):
-
     def __init__(
-
             self,
             userinput = '',
             score = 0,
             counter = 0,
-            level = 0,
             answer = 0
             ):
         
-        super().__init__(userinput=userinput, score=score, counter=counter, level=level)
-        self.answer= answer
+        super().__init__(userinput, score, counter)
+        self.answer = answer
 
     # Score increment and decrement functions for reuseable.
     def decrement_score_by_3(self):
@@ -93,12 +90,30 @@ class Stage(Game):
         print("\nT H E  A N S W E R  I S  C O R R E C T\n")
         print(self.display_score())
 
+    def report_easy_level(self):
+        self.level = int(input(f"\n\t\t\t\t\t<<<<< Press {self.level + 1} to start the  G A M E  >>>>>\n"))
+        if self.level == 1:
+            print(f"\t\t\t A T  T H E  B E G I N N I N G  O F  E A S Y  D I F F I C U L T Y  L E V E L  {self.level},  Y O U R  S C O R E  I S:  {self.score}")
+        else:
+            print(f"\t\t\t A T  T H E  E N D  O F  E A S Y  D I F F I C U L T Y  L E V E L  {self.level},  Y O U R  S C O R E  I S:  {self.score}")
+
+class Level(Stage):
+    def __init__(
+            self, 
+            userinput='', 
+            score=0, 
+            counter=0, 
+            answer=0,
+            level=0
+            ):
+        super().__init__(userinput, score, counter, answer)
+        self.level = level
+
     def easy_level_1(self):
         self.score = 0
         self.show_details()
-        print(f"\t\t\t A T  T H E  B E G I N N I N G  O F  E A S Y  D I F F I C U L T Y  L E V E L  1,  Y O U R  S C O R E  I S:  {self.score}")
-        self.level = (input("\n\t\t\t\t\t<<<<< Press 1 or enter to start the  G A M E  >>>>>\n"))
-        if self.level == "" or self.level == str(1):
+        self.report_easy_level()
+        if self.level == 1:
             print("\n\t\t\t\t\t\tW e l c o m e  t o  E A S Y  D I F F I C U L T Y  L e v e l  {}\n".format(self.level))
             self.level = 1
             for num_of_ques in range(1, 11):
@@ -133,8 +148,7 @@ class Stage(Game):
                 self.easy_level_1()
 
     def easy_level_2(self):
-        print(f"\t\t\t\t A T  T H E  E N D  O F  E A S Y  D I F F I C U L T Y  L E V E L  {self.level},  Y O U R  S C O R E  I S:  {self.score}")
-        self.level = int(input("\t\t\t\t\t<<<<< Press 2 to start  L E V E L  2?  >>>>>\n"))
+        self.report_easy_level()
         if self.level == 2:
             print("\n\t\t\t\t\t\tW e l c o m e  t o  E A S Y  D I F F I C U L T Y  L e v e l  {}\n".format(self.level))
             for num_of_ques in range(1, 11):
@@ -145,7 +159,7 @@ class Stage(Game):
                 match operator:
                     case 1:
                         self.answer = num_1 + num_2
-                        self.userinput = int(input("Question_ {2}: {0} + {1} =? ".format(num_1, num_2, num_of_ques)))
+                        self.userinput = int(input("Question {2}: {0} + {1} =? ".format(num_1, num_2, num_of_ques)))
                         if self.userinput == self.answer:
                             self.increment_score_by_5()
                         else:
@@ -171,8 +185,7 @@ class Stage(Game):
                     self.easy_level_3()
                 
     def easy_level_3(self):
-        print(f"\t\t\t\t A T  T H E  E N D  O F  E A S Y  D I F F I C U L T Y  L E V E L  {self.level},  Y O U R  S C O R E  I S:  {self.score}")
-        self.level = int(input("\t\t\t\t\t<<<<< Press 3 to start  L E V E L  3?  >>>>>\n"))
+        self.report_easy_level()
         if self.level == 3:
             print("\n\t\t\t\t\t\tW e l c o m e  t o  E A S Y  D I F F I C U L T Y  L e v e l  {}\n".format(self.level))
             for num_of_ques in range(1, 11):
@@ -217,8 +230,7 @@ class Stage(Game):
                     self.easy_level_4()
         
     def easy_level_4(self):
-        print(f"\t\t\t\t A T  T H E  E N D  O F  E A S Y  D I F F I C U L T Y  L E V E L  {self.level},  Y O U R  S C O R E  I S:  {self.score}")
-        self.level = int(input("\t\t\t\t\t<<<<< Press 4 to start  L E V E L  4?  >>>>>\n"))
+        self.report_easy_level()
         if self.level == 4:
             print("\n\t\t\t\t\t\tW e l c o m e  t o  E A S Y  D I F F I C U L T Y  L e v e l  {}\n".format(self.level))
             for num_of_ques in range(1, 11):
@@ -271,8 +283,7 @@ class Stage(Game):
                     self.easy_level_5()
 
     def easy_level_5(self):
-        print(f"\t\t\t\t A T  T H E  E N D  O F  E A S Y  D I F F I C U L T Y  L E V E L  {self.level},  Y O U R  S C O R E  I S:  {self.score}")
-        self.level = int(input("\t\t\t\t\t<<<<< Press 5 to start  L E V E L  5?  >>>>>\n"))
+        self.report_easy_level()
         if self.level == 5:
             print("\n\t\t\t\t\t\tW e l c o m e  t o  E A S Y  D I F F I C U L T Y  L e v e l  {}\n".format(self.level))
             for num_of_ques in range(1, 11):
@@ -781,5 +792,5 @@ class Stage(Game):
                         exit()
 
 if __name__ == "__main__":
-    gm = Stage()
+    gm = Level()
     gm.easy_level_1()
