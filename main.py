@@ -132,8 +132,7 @@ class Level(Stage):
         self.report_level()
         if self.level == 1:
             print("\n\t\t\t\t\t\tW e l c o m e  t o  {}  L e v e l  {}\n".format(self.difficulty(), self.level))
-            # self.level = 1
-            for num_of_ques in range(1, 3): # Testing Remove later and change to 10
+            for num_of_ques in range(1, 11): # Testing Remove later and change to 10
                 num_1 = rd.randint(1, 3)
                 num_2 = rd.randint(1, 2)
                 operator = rd.randint(1, 2)
@@ -154,7 +153,7 @@ class Level(Stage):
                             self.increment_score_by_5()
                         else:
                             self.decrement_score_by_3()
-                if num_of_ques == 2:
+                if num_of_ques == 10:
                     self.easy_level_2()
         else:
             self.level = int(input("\t\t\t\t\t<<<<< Press any key to exit or \"1\" to restart the game again?  >>>>>\n"))
@@ -168,7 +167,7 @@ class Level(Stage):
         self.report_level()
         if self.level == 2:
             print("\n\t\t\t\t\t\tW e l c o m e  t o  {}  L e v e l  {}\n".format(self.difficulty(), self.level))
-            for num_of_ques in range(1, 3):
+            for num_of_ques in range(1, 11):
                 num_1 = rd.randint(1, 5)
                 num_2 = rd.randint(1, 3)
                 operator = rd.randint(1, 3)
@@ -198,7 +197,7 @@ class Level(Stage):
                         else:
                             self.decrement_score_by_3()
 
-                if num_of_ques == 2:
+                if num_of_ques == 10:
                     self.easy_level_3()
         else:
             self.level = int(input("\t\t\t\t\t<<<<< Press any key to exit or \"1\" to restart the game again?  >>>>>\n"))
@@ -212,7 +211,7 @@ class Level(Stage):
         self.report_level()
         if self.level == 3:
             print("\n\t\t\t\t\t\tW e l c o m e  t o  {}  L e v e l  {}\n".format(self.difficulty(), self.level))
-            for num_of_ques in range(1, 3):
+            for num_of_ques in range(1, 11):
                 num_1 = rd.randint(1, 10)
                 num_2 = rd.randint(1, 4)
                 operator = rd.randint(1, 4)
@@ -250,7 +249,7 @@ class Level(Stage):
                         else:
                             self.decrement_score_by_3()
             
-                if num_of_ques == 2:
+                if num_of_ques == 10:
                     self.easy_level_4()
         else:
             self.level = int(input("\t\t\t\t\t<<<<< Press any key to exit or \"1\" to restart the game again?  >>>>>\n"))
@@ -264,7 +263,7 @@ class Level(Stage):
         self.report_level()
         if self.level == 4:
             print("\n\t\t\t\t\t\tW e l c o m e  t o  {}  L e v e l  {}\n".format(self.difficulty(), self.level))
-            for num_of_ques in range(1, 3):
+            for num_of_ques in range(1, 11):
                 num_1 = rd.randint(1, 15)
                 num_2 = rd.randint(1, 4)
                 operator = rd.randint(1, 5)
@@ -310,7 +309,7 @@ class Level(Stage):
                         else:
                             self.decrement_score_by_5()
             
-                if num_of_ques == 2:
+                if num_of_ques == 10:
                     self.easy_level_5()
 
     def easy_level_5(self):
@@ -363,7 +362,7 @@ class Level(Stage):
                         else:
                             self.decrement_score_by_5()
             
-                if num_of_ques == 2:
+                if num_of_ques == 10:
                     print(f"A T  T H E  E N D  O F  L E V E L  {self.level}  O F  {self.difficulty()}\n{self.display_score()}")
                     self.level = int(input("\t\t\t\t\t<<<<< P r e s s  1  t o  c o n t i n u e  p l a y i n g >>>>>\n"))
                     if self.level == 1:
@@ -375,7 +374,7 @@ class Level(Stage):
         self.report_level()
         if self.level == 1:
             print("\n\t\t\t\t\t\tW e l c o m e  t o  {}  L e v e l  {}\n".format(self.difficulty(), self.level))
-            for num_of_ques in range(1, 3):
+            for num_of_ques in range(1, 11):
                 num_1 = rd.randint(1, 10)
                 num_2 = rd.randint(1, 5)
                 operator = rd.randint(1, 2)
@@ -397,14 +396,14 @@ class Level(Stage):
                         else:
                             self.decrement_score_by_3()
             
-                if num_of_ques == 2:
+                if num_of_ques == 10:
                     self.level_2()
 
     def level_2(self):
         self.report_level()
         if self.level == 2:
             print("\n\t\t\t\t\t\tW e l c o m e  t o  {}  L e v e l  {}\n".format(self.difficulty(), self.level))
-            for num_of_ques in range(1, 3):
+            for num_of_ques in range(1, 11):
                 num_1 = rd.randint(5, 15)
                 num_2 = rd.randint(2, 6)
                 operator = rd.randint(1, 3)
@@ -434,14 +433,14 @@ class Level(Stage):
                         else:
                             self.decrement_score_by_3()
 
-                if num_of_ques == 2:
+                if num_of_ques == 10:
                     self.level_3()
 
     def level_3(self):
         self.report_level()
         if self.level == 3:
             print("\n\t\t\t\t\t\tW e l c o m e  t o  {}  L e v e l  {}\n".format(self.difficulty(), self.level))
-            for num_of_ques in range(1, 3):
+            for num_of_ques in range(1, 11):
                 num_1 = rd.randint(5, 20)
                 num_2 = rd.randint(4, 8)
                 operator = rd.randint(1, 4)
@@ -479,13 +478,13 @@ class Level(Stage):
                         else:
                             self.decrement_score_by_3()
             
-                if num_of_ques == 2:
+                if num_of_ques == 10:
                     self.level_4()
     def level_4(self):
         self.report_level()
         if self.level == 4:
             print("\n\t\t\t\t\t\tW e l c o m e  t o  {}  L e v e l  {}\n".format(self.difficulty(), self.level))
-            for num_of_ques in range(1, 3):
+            for num_of_ques in range(1, 11):
                 num_1 = rd.randint(10, 25)
                 num_2 = rd.randint(5, 10)
                 operator = rd.randint(1, 5)
@@ -531,14 +530,14 @@ class Level(Stage):
                         else:
                             self.decrement_score_by_5()
             
-                if num_of_ques == 2:
+                if num_of_ques == 10:
                     self.level_5()
 
     def level_5(self):
         self.report_level()
         if self.level == 5:
             print("\n\t\t\t\t\t\tW e l c o m e  t o  {}  L e v e l  {}\n".format(self.difficulty(), self.level))
-            for num_of_ques in range(1, 3):
+            for num_of_ques in range(1, 11):
                 num_1 = rd.randint(15, 28)
                 num_2 = rd.randint(6, 12)
                 operator = rd.randint(1, 5)
@@ -584,7 +583,7 @@ class Level(Stage):
                         else:
                             self.decrement_score_by_5()
             
-                if num_of_ques == 2:
+                if num_of_ques == 10:
                     print(f"A T  T H E  E N D  O F  {self.difficulty()}  L E V E L  {self.level}\n{self.display_score()}")
                     self.level = int(input("\t\t\t\t\t<<<<< P r e s s  1  t o  c o n t i n u e  p l a y i n g >>>>>\n"))
                     if self.level == 1:
@@ -596,7 +595,7 @@ class Level(Stage):
         self.report_level()
         if self.level == 1:
             print("\n\t\t\t\t\t\tW e l c o m e  t o  {}  L e v e l  {}\n".format(self.difficulty(), self.level))
-            for num_of_ques in range(1, 3):
+            for num_of_ques in range(1, 11):
                 num_1 = rd.randint(1, 10)
                 num_2 = rd.randint(1, 5)
                 operator = rd.randint(1, 2)
@@ -618,14 +617,14 @@ class Level(Stage):
                         else:
                             self.decrement_score_by_3()
             
-                if num_of_ques == 2:
+                if num_of_ques == 10:
                     self.hard_level_2()
 
     def hard_level_2(self):
         self.report_level()
         if self.level == 2:
             print("\n\t\t\t\t\t\tW e l c o m e  t o  {}  L e v e l  {}\n".format(self.difficulty(), self.level))
-            for num_of_ques in range(1, 3):
+            for num_of_ques in range(1, 11):
                 num_1 = rd.randint(5, 15)
                 num_2 = rd.randint(2, 6)
                 operator = rd.randint(1, 3)
@@ -655,14 +654,14 @@ class Level(Stage):
                         else:
                             self.decrement_score_by_3()
 
-                if num_of_ques == 2:
+                if num_of_ques == 10:
                     self.hard_level_3()
 
     def hard_level_3(self):
         self.report_level()
         if self.level == 3:
             print("\n\t\t\t\t\t\tW e l c o m e  t o  {}  L e v e l  {}\n".format(self.difficulty(), self.level))
-            for num_of_ques in range(1, 3):
+            for num_of_ques in range(1, 11):
                 num_1 = rd.randint(5, 20)
                 num_2 = rd.randint(4, 8)
                 operator = rd.randint(1, 4)
@@ -700,14 +699,14 @@ class Level(Stage):
                         else:
                             self.decrement_score_by_3()
             
-                if num_of_ques == 2:
+                if num_of_ques == 10:
                     self.hard_level_4()
 
     def hard_level_4(self):
         self.report_level()
         if self.level == 4:
             print("\n\t\t\t\t\t\tW e l c o m e  t o  {}  L e v e l  {}\n".format(self.difficulty(), self.level))
-            for num_of_ques in range(1, 3):
+            for num_of_ques in range(1, 11):
                 num_1 = rd.randint(10, 25)
                 num_2 = rd.randint(5, 10)
                 operator = rd.randint(1, 5)
@@ -753,14 +752,14 @@ class Level(Stage):
                         else:
                             self.decrement_score_by_5()
             
-                if num_of_ques == 2:
+                if num_of_ques == 10:
                     self.hard_level_5()
 
     def hard_level_5(self):
         self.report_level()
         if self.level == 5:
             print("\n\t\t\t\t\t\tW e l c o m e  t o  {}  L e v e l  {}\n".format(self.difficulty(), self.level))
-            for num_of_ques in range(1, 3):
+            for num_of_ques in range(1, 11):
                 num_1 = rd.randint(15, 28)
                 num_2 = rd.randint(6, 12)
                 operator = rd.randint(1, 5)
@@ -806,7 +805,7 @@ class Level(Stage):
                         else:
                             self.decrement_score_by_5()
             
-                if num_of_ques == 2:
+                if num_of_ques == 10:
                     print(f"A T  T H E  E N D  O F  {self.difficulty()}  L E V E L  {self.level}\n{self.display_score()}")
                     self.level = int(input("\t\t\t\t\t<<<<< Do you want to restart the game? if YES press 1 otherwise press any key to exit >>>>>\n"))
                     if self.level == 1:
