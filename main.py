@@ -12,13 +12,9 @@ class Game:
             self,
             userinput = '',
             score = 0,
-            counter = 0,
-            level = 0,
             ):
         self.username = userinput
         self.score = score
-        self.counter = counter
-        self.level = level
         self.time = int(timer.now().strftime("%H"))
     
     @staticmethod
@@ -55,13 +51,12 @@ class Game:
 class Stage(Game):
     def __init__(
             self,
-            username = '',
+            userinput = '',
             score = 0,
-            counter = 0,
             answer = 0
             ):
         
-        super().__init__(username, score, counter)
+        super().__init__(userinput, score)
         self.answer = answer
         self.action = 0
 
@@ -116,14 +111,11 @@ class Level(Stage):
             self, 
             username ='', 
             score=0, 
-            counter=0, 
             answer=0,
-            level=0,
-            action = 0
+            level=0
             ):
-        super().__init__(username, score, counter, answer)
+        super().__init__(username, score, answer)
         self.level = level
-        self.action = action
 
     def easy_level_1(self):
         self.level = 0
