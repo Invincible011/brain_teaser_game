@@ -5,8 +5,6 @@ from typing import Any
 
 
 # This is a brain teaser game
-
-
 class Game:
     def __init__(
             self,
@@ -97,7 +95,7 @@ class Stage(Game):
     def report_level(self):
         self.level = int(input(f"\n\t\t\t\t\t<<<<< Press {self.level + 1} to start the  G A M E  >>>>>\n"))
         if self.level == 1:
-            print("\t\t\t\t\t H e l l o  {}".format(self.username))
+            print("\t\t\t\t\t\t\t\t\t H e l l o  {}\n".format(self.username))
             print(f"\t\t\t A T  T H E  B E G I N N I N G  O F  {self.difficulty()}  L E V E L  {self.level},  {self.display_score()}")
         else:
             if self.level > 1:
