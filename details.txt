@@ -44,6 +44,8 @@
     
     Things to implement:
         Random operators for each Stage( 
+
+                                        
                                         - Easy 
                                         - Medium and 
                                         - Hard
