@@ -49,6 +49,7 @@
                                         - Hard
                                         )
     Scoring:
+        For the first time in scoring, if the score - individual reduction is less than Zero then TERMINATE the program (Restart the code from the beginning)
         Score would be awarded to user for each stage and level.
         if the answer is not correct then (-2, -3, and -5 respectively) is deducted from individual stage in levels.
     
