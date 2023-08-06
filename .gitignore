@@ -1,2 +1,4 @@
 *__pycache__
 del.py
+*.txt
+test.py

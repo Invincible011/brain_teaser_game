@@ -1,7 +1,9 @@
 '''
-                                        This is a Brain Teaser Game Project
+                                        This is a Brain Teaser Game Project Vers. 1.0
+    
+    Refractor the code, any reuseable code should be invoked when needed, and avoid repetition.
 
-    This would have "count-down" time frame. 
+    This would have "count-down" time frame for Version 1.1. 
     Key guides:
     Stage 1 - 3:
         Stage 1 - Easy:
@@ -47,6 +49,7 @@
                                         - Hard
                                         )
     Scoring:
+        For the first time in scoring, if the score - individual reduction is less than Zero then TERMINATE the program (Restart the code from the beginning)
         Score would be awarded to user for each stage and level.
         if the answer is not correct then (-2, -3, and -5 respectively) is deducted from individual stage in levels.
     
