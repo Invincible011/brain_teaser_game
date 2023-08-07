@@ -1,7 +1,7 @@
-import os
 import random as rd
 from datetime import datetime as timer
-from typing import Any
+import os
+
 
 # This is a brain teaser game
 class Game:
@@ -25,7 +25,6 @@ class Game:
         if self.username == "":
             self.username = "USER"
 
-    # Username and Score should be displayed at the top of the Game for easy visibility
     def startup_info(self):        
         if self.time < 12:
             return f'\n\t\t\t\t\t\tG o o d  M o r n i n g: "{self.username}"'
@@ -57,7 +56,7 @@ class Optimizer(Game):
         self.action = 0
         self.temp_level = 0
 
-    # Score increment and decrement functions for reuseable.
+    # Score increment and decrement.
     def decrement_score_by_3(self):
         self.score -= 3
         print(f"\nT H E  A N S W E R  I S  I N C O R R E C T\nT H E  C O R R E C T  A N S W E R  I S = {self.answer}\n")
@@ -82,6 +81,21 @@ class Optimizer(Game):
         self.score += 10
         print("\nT H E  A N S W E R  I S  C O R R E C T\n")
         print(self.display_score())
+
+    # implement score increment and decrement
+    def increment(self):
+        if self.action == 0:
+            self.increment_score_by_5()
+        else:
+            self.increment_score_by_10()
+
+    def decrement(self):
+        if self.action == 0:
+            self.decrement_score_by_3()
+        elif self.action == 1:
+            self.decrement_score_by_4()
+        else:
+            self.decrement_score_by_5()
 
     # Return the Level Difficulty based on the action mode
     def difficulty(self):
@@ -109,16 +123,6 @@ class Optimizer(Game):
             self.action = 0
             self.counter = 0
             self.score = 0
-
-    def restart(self):
-        if self.action == 3:
-            self.level = int(input("\t\t\t\t\t<<<<< P r e s s  1  t o  c o n t i n u e  p l a y i n g >>>>>\n"))
-            print("\t\t\t\t\t\t\tO R")
-            self.level = int(input("\t\t\t\t\t<<<<< Do you want to restart the game? if YES press 1 otherwise press any key to exit >>>>>\n"))
-            if self.level == 1:
-                self.root_level()
-            else:
-                exit()
     
     def update_level(self):
         if self.counter == 50 and self.temp_level == 5:
@@ -130,7 +134,14 @@ class Optimizer(Game):
                 self.action = 3
                 # Debugging
                 # print(f"Action: {self.action}")
-            self.restart()
+            if self.action == 3:
+                self.level = int(input("\t\t\t\t\t<<<<< P r e s s  1  t o  c o n t i n u e  p l a y i n g >>>>>\n"))
+                print("\t\t\t\t\t\t\tO R")
+                self.level = int(input("\t\t\t\t\t<<<<< Do you want to restart the game? if YES press 1 otherwise press any key to exit >>>>>\n"))
+                if self.level == 1:
+                    self.root_level()
+                else:
+                    exit()
             self.level = int(input("\t\t\t\t\t<<<<< P r e s s  1  t o  c o n t i n u e  p l a y i n g >>>>>\n"))
             if self.level == 1:
                 self.root_level()
@@ -182,94 +193,41 @@ class Level(Optimizer):
                         self.answer = num_1 + num_2
                         self.userinput = int(input("Question {2}: {0} + {1} =? ".format(num_1, num_2, num_of_ques)))
                         if self.userinput == self.answer:
-                            # Do justice to all levels
-                            if self.action <= 1 and self.level <= 4:
-                                self.increment_score_by_5()
-                            elif self.action == 2 and self.level == 5:
-                                self.increment_score_by_10()
-                            elif self.action == 0 and self.level == 5:
-                                self.increment_score_by_10()
-
+                            self.increment()
                         else:
-                            if self.action == 0 and self.level <= 3:
-                                self.decrement_score_by_3()
-                            elif self.action == 0 and self.level == 4:
-                                self.decrement_score_by_4()
-                            elif self.action == 0 and self.level == 5:
-                                self.decrement_score_by_5()
+                            self.decrement()
 
                     case 2:
                         self.answer = num_1 - num_2
                         self.userinput = int(input("Question {2}: {0} - {1} =? ".format(num_1, num_2, num_of_ques)))
                         if self.userinput == self.answer:
-                            if self.action <= 1 and self.level <= 4:
-                                self.increment_score_by_5()
-                            elif self.action == 2 and self.level == 5:
-                                self.increment_score_by_10()
-                            elif self.action == 0 and self.level == 5:
-                                self.increment_score_by_10()
-
+                            self.increment()
                         else:
-                            if self.action <= 1 and self.level <= 3:
-                                self.decrement_score_by_3()
-                            elif self.action == 1 and self.level == 4:
-                                self.decrement_score_by_4()
-                            elif self.action == 1 and self.level == 5:
-                                self.decrement_score_by_5()
-                    
+                            self.decrement()
+                            
                     case 3:
                         self.answer = num_1 * num_2
                         self.userinput = int(input("Question {2}: {0} * {1} =? ".format(num_1, num_2, num_of_ques)))
                         if self.userinput == self.answer:
-                            if self.action <= 1 and self.level <= 4:
-                                self.increment_score_by_5()
-                            elif self.action == 2 and self.level == 5:
-                                self.increment_score_by_10()
-                            elif self.action <= 1 and self.level == 5:
-                                self.increment_score_by_10()
+                            self.increment()
                         else:
-                            if self.action <= 1 and self.level <= 3:
-                                self.decrement_score_by_3()
-                            elif self.action <= 2 and self.level == 4:
-                                self.decrement_score_by_4()
-                            elif self.action == 1 and self.level == 5:
-                                self.decrement_score_by_5()
+                            self.decrement()
 
                     case 4:
                         self.answer = num_1 ** num_2
                         self.userinput = int(input("Question {2}: {0} ^ {1} =? ".format(num_1, num_2, num_of_ques)))
                         if self.userinput == self.answer:
-                            if self.action <= 2 and self.level <= 4:
-                                self.increment_score_by_5()
-                            elif self.action == 2 and self.level <= 5:
-                                self.increment_score_by_10()
-                            elif self.action == 0 and self.level == 5:
-                                self.increment_score_by_10()
+                            self.increment()
                         else:
-                            if self.action <= 1 and self.level <= 3:
-                                self.decrement_score_by_3()
-                            elif self.action <= 2 and self.level == 4:
-                                self.decrement_score_by_4()
-                            elif self.action == 1 and self.level == 5:
-                                self.decrement_score_by_5()
-
+                            self.decrement()
+                            
                     case 5:
                         self.answer = num_1 / num_2
                         self.userinput = float(input("Question {2}: {0} / {1} =? ".format(num_1, num_2, num_of_ques)))
                         if self.userinput == self.answer:
-                            if self.action <= 1 and self.level <= 4:
-                                self.increment_score_by_5()
-                            elif self.action == 2 and self.level == 5:
-                                self.increment_score_by_10()
-                            elif self.action <= 2 and self.level == 5:
-                                self.increment_score_by_10()
+                            self.increment()
                         else:
-                            if self.action <= 1 and self.level <= 3:
-                                self.decrement_score_by_3()
-                            elif self.action == 1 and self.level == 4:
-                                self.decrement_score_by_4()
-                            elif self.action <= 2 and self.level == 5:
-                                self.decrement_score_by_5()
+                            self.decrement()
 
                 if num_of_ques == 10:
                     self.update_level()
