@@ -1,13 +1,13 @@
-# brain_teaser_game
-This is a BRAIN TEASER GAME. It tests students of knowledge from the age of 6 - 15 in mathematical calculation, ranging from the easy stage known as simple, and medium the hard stage respectively. This will enhance their way of reasoning and speed up their calculation skill as well.
+# brain_teaser
+This is a BRAIN TEASER GAME. It tests students of knowledge from the age of 6 - 15 in mathematical calculation, ranging from the easy stage known as simple oe easy, and medium the hard stage respectively. This will enhance their way of reasoning and speed up their calculation skills as well.
 
 
 '''
-                                        This is a Brain Teaser Game Project Vers. 1.0
+### This is a Brain Teaser Game Project Vers. 1.0
     
-    Refractor the code, any reuseable code should be invoked when needed, and avoid repetition.
+    Note: Refractor the code, any reuseable code should be invoked when needed, and avoid repetition.
 
-    This would have "count-down" time frame for Version 1.1. 
+    This would have "count-down" time frame for each question for Version 1.1. 
     Key guides:
     Stage 1 - 3:
         Stage 1 - Easy:
@@ -46,14 +46,20 @@ This is a BRAIN TEASER GAME. It tests students of knowledge from the age of 6 - 
             Level 5:
                 Question 1-10 (Very Hard) example: Question_1: 10 % 3 = ?
     
+    Create a class and method(Inherit and could be inherited), this is where you make all optimizer then invoke them when needed.
+    Don't repeat your with recursive code. 
+
     Things to implement:
-        Random operators for each Stage(         
+        Random operators: addition, subtraction, division, multiplication, modulus, and power
+                            (+, -, /, *, % and ^)
+                             for each Stage(         
                                         - Easy 
                                         - Medium and 
                                         - Hard
                                         )
+
     Scoring:
-        For the first time in scoring, if the score - individual reduction is less than Zero then TERMINATE the program (Restart the code from the beginning)
+        For the first time in scoring, if the score - individual reduction is less than Zero then TERMINATE the program (Restart the code from the beginning Stage 1 - Level 1 )
         Score would be awarded to user for each stage and level.
         if the answer is not correct then (-2, -3, and -5 respectively) is deducted from individual stage in levels.
     
