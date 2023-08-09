@@ -1,5 +1,6 @@
 import random as rd
 from datetime import datetime as timer
+import time
 import os
 
 
@@ -56,35 +57,44 @@ class Optimizer(Game):
         self.action = 0
         self.temp_level = 0
 
-    # Score increment and decrement.
-    def decrement_score_by_3(self):
-        self.score -= 3
-        print(f"\nT H E  A N S W E R  I S  I N C O R R E C T\nT H E  C O R R E C T  A N S W E R  I S = {self.answer}\n")
-        print(self.display_score())
-
-    def decrement_score_by_4(self):
-        self.score -= 4
-        print(f"\nT H E  A N S W E R  I S  I N C O R R E C T\nT H E  C O R R E C T  A N S W E R  I S = {self.answer}\n")
-        print(self.display_score())
-
-    def decrement_score_by_5(self):
-        self.score -= 5
-        print(f"\nT H E  A N S W E R  I S  I N C O R R E C T\nT H E  C O R R E C T  A N S W E R  I S = {self.answer}\n")
-        print(self.display_score())
+        # To be used for tracking the scores
+        # self.correct = 0
+        # self.incorrect = 0
 
     def increment_score_by_5(self):
         self.score += 5
+        self.correct += 1
         print("\nT H E  A N S W E R  I S  C O R R E C T\n")
         print(self.display_score())
 
     def increment_score_by_10(self):
         self.score += 10
+        self.correct += 1
         print("\nT H E  A N S W E R  I S  C O R R E C T\n")
+        print(self.display_score())
+
+    # Score increment and decrement.
+    def decrement_score_by_3(self):
+        self.score -= 3
+        self.incorrect -= 1
+        print(f"\nT H E  A N S W E R  I S  I N C O R R E C T\nT H E  C O R R E C T  A N S W E R  I S = {self.answer}\n")
+        print(self.display_score())
+
+    def decrement_score_by_4(self):
+        self.score -= 4
+        self.incorrect -= 1
+        print(f"\nT H E  A N S W E R  I S  I N C O R R E C T\nT H E  C O R R E C T  A N S W E R  I S = {self.answer}\n")
+        print(self.display_score())
+
+    def decrement_score_by_5(self):
+        self.score -= 5
+        self.incorrect -= 1
+        print(f"\nT H E  A N S W E R  I S  I N C O R R E C T\nT H E  C O R R E C T  A N S W E R  I S = {self.answer}\n")
         print(self.display_score())
 
     # implement score increment and decrement
     def increment(self):
-        if self.action == 0:
+        if self.action == 0 or self.action == 1:
             self.increment_score_by_5()
         else:
             self.increment_score_by_10()
@@ -108,7 +118,7 @@ class Optimizer(Game):
 
     # Recursive call on level for each action {0: Easy, 1: Medium, 2: Hard}
     def report_level(self):
-        self.level = int(input(f"\n\t\t\t\t\t<<<<< Press {self.temp_level} to start the  G A M E  >>>>>\n"))
+        self.level = int(input(f"\n\t\t\t\t\t<<<<< Press {self.temp_level} to start  L E V E L  {self.temp_level}  of  {self.difficulty()} >>>>>\n"))
         if self.level == 1:
             print("\t\t\t\t\t\t\t\t\t H e l l o  {}\n".format(self.username))
             print(f"\t\t\t A T  T H E  B E G I N N I N G  O F  {self.difficulty()}  L E V E L  {self.level},  {self.display_score()}")
@@ -120,12 +130,20 @@ class Optimizer(Game):
 
     def reset_action(self):
         if self.action == 3:
-            self.action = 0
-            self.counter = 0
-            self.score = 0
+            self.reset()
+    
+    def reset(self):
+        self.action = 0
+        self.counter = 0
+        self.score = 0
+        self.level = 0
+        self.correct = 0
+        self.incorrect = 0
     
     def update_level(self):
         if self.counter == 50 and self.temp_level == 5:
+            self.correct = 0
+            self.incorrect = 0
             self.temp_level = 1
             self.counter = 0
             print(f"A T  T H E  E N D  O F  L E V E L  {self.level}  O F  {self.difficulty()}\n{self.display_score()}")
@@ -166,16 +184,17 @@ class Level(Optimizer):
         self.level = level
         self.counter = counter
         self.start = 0
-        self.end = 1
+        self.end = 0
+        self.correct = 0
+        self.incorrect = 0
 
     def root_level(self):
         if self.level == 0:
             # Reset Temporary Level
             self.temp_level = 1
             self.show_details()
-        # Reset action mode when level = hard
+        # Reset action mode when level_end = hard
         self.reset_action()
-        self.level = 0
         self.report_level()
         if self.level == self.temp_level:
             print("\n\t\t\t\t\t\tW e l c o m e  t o  {}  L e v e l  {}\n".format(self.difficulty(), self.level))
@@ -183,11 +202,13 @@ class Level(Optimizer):
                 self.counter += 1
                 # print(f"Temp__Level_Counter: {self.temp_level}")
                 # print(f"Counter: {self.counter}")
+                if self.end == 10:
+                    self.end = 0
                 self.end += 1
                 num_1 = rd.randint(self.start+self.level, (3*self.level)+self.end)
                 num_2 = rd.randint(self.start+self.level, (2*self.level)+self.end)
-                operator = rd.randint(1, 5)
-                
+                operator = rd.randint(1, 6)
+
                 match operator:
                     case 1:
                         self.answer = num_1 + num_2
@@ -224,6 +245,19 @@ class Level(Optimizer):
                     case 5:
                         self.answer = num_1 / num_2
                         self.userinput = float(input("Question {2}: {0} / {1} =? ".format(num_1, num_2, num_of_ques)))
+                        if self.userinput == self.answer:
+                            self.increment()
+                        else:
+                            self.decrement()
+                    
+                    case 6:
+                        if num_1 > num_2:
+                            temp = num_1
+                            num_1 = num_2
+                            num_2 = temp
+                        self.answer = num_2 % num_1
+                        # print("This returns a remainder")
+                        self.userinput = float(input("Question {2}: {0} % {1} =? ".format(num_2, num_1, num_of_ques)))
                         if self.userinput == self.answer:
                             self.increment()
                         else:
