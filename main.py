@@ -302,7 +302,7 @@ class Level(Optimizer):
                     self.temp_counter.append(self.counter)
                     if self.correct >= 5:
                         self.temp_score = [] 
-                        self.temp_counter = []   
+                        self.temp_counter = []
                         if len(self.temp_score) <= 1:
                             self.temp_score.append(self.score)
                             self.temp_counter.append(self.counter)

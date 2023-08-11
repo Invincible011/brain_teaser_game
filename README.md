@@ -63,5 +63,11 @@ This is a BRAIN TEASER GAME. It tests students of knowledge from the age of 6 - 
         Score would be awarded to user for each stage and level.
         if the answer is not correct then (-2, -3, and -5 respectively) is deducted from individual stage in levels.
     
+    "New Features":
+        Countdown to 4sces if correct anser is >= 5:
+            move to the next level automatically without pressing any integer value to trigger the Stage to the next level.
+        else:
+            Repeat the recent or previous level.
+        
     Done!!!!!
 '''
