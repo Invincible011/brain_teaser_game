@@ -48,12 +48,7 @@ class Optimizer(Game):
             self,
             userinput = ''
             ):
-        
         super().__init__(userinput)
-
-        # To be used for tracking the scores
-        # self.correct = 0
-        # self.incorrect = 0
 
     def increment_score_by_5(self):
         self.correct += 1
@@ -88,7 +83,7 @@ class Optimizer(Game):
 
     # implement score increment and decrement
     def increment(self):
-        if self.action == 0 or self.action == 1:
+        if self.action <= 1:
             self.increment_score_by_5()
         else:
             self.increment_score_by_10()
@@ -112,14 +107,9 @@ class Optimizer(Game):
 
     # Recursive call on level for each action {0: Easy, 1: Medium, 2: Hard}
     def report_level(self):
-        if self.correct == 1:
+        if self.correct >= 5:
             print(f"A T  T H E  E N D  O F  {self.difficulty()}  L E V E L  {self.level}")
             print(f"You answered {self.correct} question correctly")
-            print("Wait for 5 secs...")
-            time.sleep(5)
-        elif self.correct >= 1:
-            print(f"A T  T H E  E N D  O F  {self.difficulty()}  L E V E L  {self.level}")
-            print(f"You answered {self.correct} questions correctly")
             print("Wait for 5 secs...")
             time.sleep(5)
         
@@ -147,20 +137,22 @@ class Optimizer(Game):
     def update_level(self):
         if self.correct < 5:
             # Track the recent score and then store it then display the recent score if correct answer is less than 5
-            if self.action == 0 and self.level == 1:
+            if self.action == 0 and self.level == 1 :
                 self.score = 0
+                self.counter = 0
             elif self.action >= 1 and self.level >= 1:
                 # Check if the temp_score list is empty, if null; add the recent score to the list
-                # else assign the score to the first index of the temp_score list (Last_Seen)  
+                # else: assign the score to the first index of the temp_score list (Last_Seen)  
                 if self.temp_score == []:
                     self.temp_score.append(self.score)
+                    self.temp_counter.append(self.counter)
                 else:
-                    self.score = self.temp_score[0] 
+                    self.score = self.temp_score[0]
+                    self.counter = self.temp_counter[0]
             print(f"A T  T H E  E N D  O F  {self.difficulty()}  L E V E L  {self.level}")
-            print(f"You correct answer is {self.correct} but you can't proceed to the next level")
+            print(f"Your correct answer is {self.correct} but you can't proceed to the next level")
             print(f"Wait for 5 secs to restart {self.difficulty()} Level_{self.level} . . .")
-
-            time.sleep(5) 
+            time.sleep(5)   
             self.score
             self.correct = 0
             self.root_level()
@@ -182,7 +174,7 @@ class Optimizer(Game):
                 if self.level == 1:
                     self.root_level()
                 else:
-                    exit()
+                    self.kill()
             self.level = int(input("\t\t\t\t\t<<<<< P r e s s  1  t o  c o n t i n u e  p l a y i n g >>>>>\n"))
             if self.level == 1:
                 self.root_level()
@@ -215,6 +207,7 @@ class Level(Optimizer):
         self.action = 0
         self.temp_level = 0
         self.temp_score = []
+        self.temp_counter = []
 
     def root_level(self):
 
@@ -230,8 +223,6 @@ class Level(Optimizer):
             print("\n\t\t\t\t\t\tW e l c o m e  t o  {}  L e v e l  {}\n".format(self.difficulty(), self.level))
             for num_of_ques in range(1, 11): # Testing Remove from 3 to be changed to 11
                 self.counter += 1
-                # print(f"Temp__Level_Counter: {self.temp_level}")
-                # print(f"Counter: {self.counter}")
                 if self.end == 10:
                     self.end = 0
                 self.end += 1
@@ -299,14 +290,25 @@ class Level(Optimizer):
                         else:
                             self.decrement()
 
+                print(f"Temp_Level_Counter: {self.temp_level}")
+                print(f"Counter: {self.counter}")
+                if self.correct <= 1:
+                    print(f"You answered {self.correct} Correct answer out of 10")
+                else:
+                    print(f"You answered {self.correct} Correct answers out of 10")
+
                 if num_of_ques == 10:
                     self.temp_score.append(self.score)
+                    self.temp_counter.append(self.counter)
                     if self.correct >= 5:
-                        self.temp_score = []    
+                        self.temp_score = [] 
+                        self.temp_counter = []   
                         if len(self.temp_score) <= 1:
                             self.temp_score.append(self.score)
+                            self.temp_counter.append(self.counter)
                     else:
                         self.score = self.temp_score[0]
+                        self.counter = self.temp_counter[0]
                     self.update_level()
 
         else:
