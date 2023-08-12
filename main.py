@@ -98,7 +98,7 @@ class Optimizer(Game):
 
     # Return the Level Difficulty based on the action mode
     def difficulty(self):
-        if self.action == 0:
+        if self.action == self.start:
             return "E A S Y  D I F F I C U L T Y"
         elif self.action == 1:
             return "M E D I U M  D I F F I C U L T Y"
@@ -124,7 +124,7 @@ class Optimizer(Game):
                 self.level += 1
 
     def reset_action(self):
-        if self.action == 3:
+        if self.action == self.max_action:
             self.reset()
     
     def reset(self):
@@ -136,10 +136,10 @@ class Optimizer(Game):
     
     def update_level(self):
         if self.correct < 5:
-            # Track the recent score and then store it then display the recent score if correct answer is less than 5
-            if self.action == 0 and self.level == 1 :
-                self.score = 0
-                self.counter = 0
+            # Track the recent score and store it then display the recent score if correct answer is less than 5
+            if self.action == self.start and self.level == 1:
+                self.score = self.start
+                self.counter = self.start
             elif self.action >= 1 and self.level >= 1:
                 # Check if the temp_score list is empty, if null; add the recent score to the list
                 # else: assign the score to the first index of the temp_score list (Last_Seen)  
@@ -147,27 +147,29 @@ class Optimizer(Game):
                     self.temp_score.append(self.score)
                     self.temp_counter.append(self.counter)
                 else:
-                    self.score = self.temp_score[0]
-                    self.counter = self.temp_counter[0]
+                    self.score = self.temp_score[self.start]
+                    self.counter = self.temp_counter[self.start]
             print(f"A T  T H E  E N D  O F  {self.difficulty()}  L E V E L  {self.level}")
             print(f"Your correct answer is {self.correct} but you can't proceed to the next level")
             print(f"Wait for 5 secs to restart {self.difficulty()} Level_{self.level} . . .")
-            time.sleep(5)   
+            time.sleep(self.max_level)   
             self.score
-            self.correct = 0
+            self.correct = self.start
             self.root_level()
-
-        if self.counter == 50 and self.temp_level == 5:
-            self.correct = 0
+        # Check if the counter has exceeded max_count
+        if self.counter >= self.max_count:
+            self.counter = self.max_count
+        if self.counter == self.max_count and self.temp_level == self.max_level:
+            self.correct = self.start
             self.temp_level = 1
-            self.counter = 0
+            self.counter = self.start
             print(f"A T  T H E  E N D  O F  L E V E L  {self.level}  O F  {self.difficulty()}\n{self.display_score()}")
             self.action += 1
-            if self.action >= 3:
-                self.action = 3
+            if self.action >= self.max_action:
+                self.action = self.max_action
                 # Debugging
                 # print(f"Action: {self.action}")
-            if self.action == 3:
+            if self.action == self.max_action:
                 self.level = int(input("\t\t\t\t\t<<<<< P r e s s  1  t o  c o n t i n u e  p l a y i n g >>>>>\n"))
                 print("\t\t\t\t\t\t\tO R")
                 self.level = int(input("\t\t\t\t\t<<<<< Do you want to restart the game? if YES press 1 otherwise press any key to exit >>>>>\n"))
@@ -203,14 +205,16 @@ class Level(Optimizer):
         self.start = 0
         self.end = 0
         self.correct = 0
-        self.incorrect = 0
+        # self.incorrect = 0
         self.action = 0
         self.temp_level = 0
+        self.max_count = 50
+        self.max_level = 5
+        self.max_action = 3
         self.temp_score = []
         self.temp_counter = []
 
     def root_level(self):
-
         if self.level == 0:
             # Reset Temporary Level
             self.temp_level = 1
@@ -290,25 +294,28 @@ class Level(Optimizer):
                         else:
                             self.decrement()
 
+                '''
                 print(f"Temp_Level_Counter: {self.temp_level}")
                 print(f"Counter: {self.counter}")
+                print(f"Action: {self.action}")
                 if self.correct <= 1:
                     print(f"You answered {self.correct} Correct answer out of 10")
                 else:
                     print(f"You answered {self.correct} Correct answers out of 10")
+                '''
 
-                if num_of_ques == 10:
+                if num_of_ques == self.max_level*2:
                     self.temp_score.append(self.score)
                     self.temp_counter.append(self.counter)
-                    if self.correct >= 5:
+                    if self.correct >= self.max_level:
                         self.temp_score = [] 
                         self.temp_counter = []
                         if len(self.temp_score) <= 1:
                             self.temp_score.append(self.score)
                             self.temp_counter.append(self.counter)
                     else:
-                        self.score = self.temp_score[0]
-                        self.counter = self.temp_counter[0]
+                        self.score = self.temp_score[self.start]
+                        self.counter = self.temp_counter[self.start]
                     self.update_level()
 
         else:
