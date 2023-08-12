@@ -295,6 +295,7 @@ class Level(Optimizer):
                             self.decrement()
 
                 '''
+                # For debugging
                 print(f"Temp_Level_Counter: {self.temp_level}")
                 print(f"Counter: {self.counter}")
                 print(f"Action: {self.action}")
