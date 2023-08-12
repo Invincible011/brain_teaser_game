@@ -29,7 +29,7 @@ class Game:
     def startup_info(self):        
         if self.time < 12:
             return f'\n\t\t\t\t\t\tG o o d  M o r n i n g: "{self.username}"'
-        elif self.time <= 15:
+        elif self.time <= 14:
             return f'\n\t\t\t\t\t\tG o o d  A f t e r n o o n: "{self.username}"'
         else: 
             return f'\n\t\t\t\t\t\tG o o d  E v e n i n g: "{self.username}"'
@@ -110,8 +110,8 @@ class Optimizer(Game):
         if self.correct >= 5:
             print(f"A T  T H E  E N D  O F  {self.difficulty()}  L E V E L  {self.level}")
             print(f"You answered {self.correct} question correctly")
-            print("Wait for 5 secs...")
-            time.sleep(5)
+            print("Wait for 5 secs to move to the next Level...")
+            time.sleep(6)
         
         self.level = int(input(f"\n\t\t\t\t\t<<<<< Press {self.temp_level} to start  L E V E L  {self.temp_level}  of  {self.difficulty()} >>>>>\n"))
         if self.level == 1:
