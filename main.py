@@ -202,12 +202,12 @@ class Level(Optimizer):
         self.answer = answer
         self.level = level
         self.counter = counter
-        self.start = 0
-        self.end = 0
-        self.correct = 0
+        # Unpack tuple
+        self.start, self.end, self.action, self.correct , self.temp_level  = (0, 0, 0, 0, 0)
+        # self.correct = 0
         # self.incorrect = 0
-        self.action = 0
-        self.temp_level = 0
+        # self.action = 0
+        # self.temp_level = 0
         self.max_count = 50
         self.max_level = 5
         self.max_action = 3
@@ -294,7 +294,6 @@ class Level(Optimizer):
                         else:
                             self.decrement()
 
-                '''
                 # For debugging
                 print(f"Temp_Level_Counter: {self.temp_level}")
                 print(f"Counter: {self.counter}")
@@ -303,7 +302,6 @@ class Level(Optimizer):
                     print(f"You answered {self.correct} Correct answer out of 10")
                 else:
                     print(f"You answered {self.correct} Correct answers out of 10")
-                '''
 
                 if num_of_ques == self.max_level*2:
                     self.temp_score.append(self.score)
