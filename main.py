@@ -118,15 +118,12 @@ class Optimizer:
 
     def reset_action(self):
         if self.action == self.max_action:
-            self.reset()
-    
-    def reset(self):
-        self.action = 0
-        self.counter = 0
-        self.score = 0
-        self.level = 0
-        self.correct = 0
-        self.incorrect = 0
+            self.action = 0
+            self.counter = 0
+            self.score = 0
+            self.level = 0
+            self.correct = 0
+            self.incorrect = 0        
     
     # AI code & check-loop
     def update_level(self):
