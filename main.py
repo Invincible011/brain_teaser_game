@@ -104,7 +104,7 @@ class Optimizer:
             print(f"You answered {self.correct} questions correctly")
             # print(f"You answered {self.incorrect} questions in-correctly")
             print(f"Wait for 5 secs to move to Level {self.level+1}...")
-            time.sleep(6)
+            time.sleep(5)
         
         self.level = int(input(f"\n\t\t\t\t\t<<<<< Press {self.temp_level} to start  L E V E L  {self.temp_level}  of  {self.difficulty()} >>>>>\n"))
         if self.level == 1:
