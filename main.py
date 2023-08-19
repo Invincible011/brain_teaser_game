@@ -123,7 +123,7 @@ class Optimizer:
             self.score = 0
             self.level = 0
             self.correct = 0
-            self.incorrect = 0        
+            self.incorrect = 0
     
     # AI code & check-loop
     def update_level(self):
