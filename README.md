@@ -46,11 +46,11 @@ This is a BRAIN TEASER GAME. It tests students of knowledge from the age of 6 - 
             Level 5:
                 Question 1-10 (Very Hard) example: Question_1: 10 % 3 = ?
     
-    Create a class and method(Inherit and could be inherited), this is where you make all optimizer then invoke them when needed.
+    Create a class and method(Inherit and could be inherited), this is where you make all optimizations then invoke them when needed.
     Don't repeat your with recursive code. 
 
     Things to implement:
-        Random operators: addition, subtraction, division, multiplication, modulus, and power
+        Random operators: addition, subtraction, division, multiplication, modulus, and power_of
                             (+, -, /, *, % and ^)
                              for each Stage(         
                                         - Easy 
