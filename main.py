@@ -3,9 +3,8 @@ from datetime import datetime as timer
 import random as rd
 import time
 
-
 # This is a brain teaser game
-# Read README to know more about the full functionalities.
+# Check "README.md" to know more about the full functionalities.
 class Optimizer:
     def __init__(
             self,
@@ -14,7 +13,8 @@ class Optimizer:
         self.username = userinput
         self.time = int(timer.now().strftime("%H"))
     
-    def clean(self):
+    @staticmethod
+    def clean():
         os.system('cls')
 
     def initialise(self):
@@ -105,7 +105,6 @@ class Optimizer:
             # print(f"You answered {self.incorrect} questions in-correctly")
             print(f"Wait for 5 secs to move to Level {self.level+1}...")
             time.sleep(5)
-        
         self.level = int(input(f"\n\t\t\t\t\t<<<<< Press {self.temp_level} to start  L E V E L  {self.temp_level}  of  {self.difficulty()} >>>>>\n"))
         if self.level == 1:
             print("\t\t\t\t\t\t\t\t\t H e l l o  {}\n".format(self.username))
@@ -125,9 +124,9 @@ class Optimizer:
             self.correct = 0
             self.incorrect = 0
     
-    # AI code & check-loop
+    # AI code & check-loops
     def update_level(self):
-        # self.initial = self.start+1 
+        # self.initial = self.start+1
         if self.correct < 5:
             # Track the recent score and store it then display the recent score if correct answer is less than 5
             if self.action == self.start and self.level == self.initial:
@@ -164,8 +163,6 @@ class Optimizer:
             self.action += 1
             if self.action >= self.max_action:
                 self.action = self.max_action
-                # Debugging
-                # print(f"Action: {self.action}")
             if self.action == self.max_action:
                 self.level = int(input("\t\t\t\t\t<<<<< P r e s s  1  t o  c o n t i n u e  p l a y i n g >>>>>\n"))
                 print("\t\t\t\t\t\t\tO R")
@@ -173,16 +170,13 @@ class Optimizer:
                 if self.level == self.initial:
                     self.root_level()
                 else:
-                    self.kill()
+                    exit()
             self.level = int(input("\t\t\t\t\t<<<<< P r e s s  1  t o  c o n t i n u e  p l a y i n g >>>>>\n"))
             if self.level == self.initial:
                 self.root_level()
         else:
             self.temp_level += self.initial
             self.root_level()
-
-    def kill(self):
-        exit()
 
 
 class Game(Optimizer):
@@ -199,7 +193,7 @@ class Game(Optimizer):
         self.answer = answer
         self.level = level
         self.counter = counter
-        # Unpack tuple
+        # Unpacking tuple
         self.start, self.end, self.action, self.correct, self.incorrect, self.temp_level  = ((0,) * 6)
         self.max_count = 50
         self.max_level = 5
@@ -213,7 +207,7 @@ class Game(Optimizer):
             # Reset Temporary Level
             self.temp_level = self.initial
             self.show_details()
-        # Reset action mode when level_end = hard
+        # Reset action mode
         self.reset_action()
         self.report_level()
         self.correct = self.start
@@ -309,7 +303,6 @@ class Game(Optimizer):
                     self.temp_score.append(self.score)
                     self.temp_counter.append(self.counter)
                     if self.correct >= self.max_level:
-                        # self.counter = 1
                         self.temp_score = []
                         self.temp_counter = []
                         if len(self.temp_score) <= self.initial:
@@ -319,11 +312,10 @@ class Game(Optimizer):
                         self.score = self.temp_score[self.start]
                         self.counter = self.temp_counter[self.start]
                     self.update_level()
-
         else:
             self.level = int(input("\t\t\t\t\t<<<<< Press any key to exit or \"1\" to restart the game again?  >>>>>\n"))
             if self.level != self.initial:
-                self.kill()
+                exit()
             else:
                 self.root_level()
 
