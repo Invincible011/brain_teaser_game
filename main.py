@@ -105,6 +105,7 @@ class Optimizer:
             # print(f"You answered {self.incorrect} questions in-correctly")
             print(f"Wait for 5 secs to move to Level {self.level+1}...")
             time.sleep(5)
+        self.clean()
         self.level = int(input(f"\n\t\t\t\t\t<<<<< Press {self.temp_level} to start  L E V E L  {self.temp_level}  of  {self.difficulty()} >>>>>\n"))
         if self.level == 1:
             print("\t\t\t\t\t\t\t\t\t H e l l o  {}\n".format(self.username))
@@ -126,7 +127,7 @@ class Optimizer:
     
     # AI code & check-loops
     def update_level(self):
-        # self.initial = self.start+1
+        self.initial = self.start+1
         if self.correct < 5:
             # Track the recent score and store it then display the recent score if correct answer is less than 5
             if self.action == self.start and self.level == self.initial:
@@ -143,6 +144,7 @@ class Optimizer:
                 else:
                     self.score = self.temp_score[self.start]
                     self.counter = self.temp_counter[self.start]
+            self.clean()
             print(f"A T  T H E  E N D  O F  {self.difficulty()}  L E V E L  {self.level}")
             print(f"Your correct answer is {self.correct} but you can't proceed to the next level")
             # print(f"You answered {self.incorrect} questions in-correctly")
@@ -159,6 +161,7 @@ class Optimizer:
             self.correct = self.start
             self.temp_level = self.initial
             self.counter = self.start
+            self.clean()
             print(f"A T  T H E  E N D  O F  L E V E L  {self.level}  O F  {self.difficulty()}\n{self.display_score()}")
             self.action += 1
             if self.action >= self.max_action:
@@ -227,7 +230,10 @@ class Game(Optimizer):
                     case 1:
                         self.answer = num_1 + num_2
                         time.sleep(1)
-                        self.userinput = int(input("Question {2}: {0} + {1} =? ".format(num_1, num_2, num_of_ques)))
+                        try:
+                            self.userinput = int(input("Question {2}: {0} + {1} =? ".format(num_1, num_2, num_of_ques)))
+                        except Exception:
+                            raise TypeError("Try an Integer or Float number")
                         if self.userinput == self.answer:
                             self.increment()
                         else:
@@ -236,7 +242,10 @@ class Game(Optimizer):
                     case 2:
                         self.answer = num_1 - num_2
                         time.sleep(1)
-                        self.userinput = int(input("Question {2}: {0} - {1} =? ".format(num_1, num_2, num_of_ques)))
+                        try:
+                            self.userinput = int(input("Question {2}: {0} - {1} =? ".format(num_1, num_2, num_of_ques)))
+                        except Exception:
+                            raise TypeError("Try an Integer or Float number")
                         if self.userinput == self.answer:
                             self.increment()
                         else:
@@ -245,7 +254,10 @@ class Game(Optimizer):
                     case 3:
                         self.answer = num_1 * num_2
                         time.sleep(1)
-                        self.userinput = int(input("Question {2}: {0} * {1} =? ".format(num_1, num_2, num_of_ques)))
+                        try:
+                            self.userinput = int(input("Question {2}: {0} * {1} =? ".format(num_1, num_2, num_of_ques)))
+                        except Exception:
+                            raise TypeError("Try an Integer or Float number")
                         if self.userinput == self.answer:
                             self.increment()
                         else:
@@ -254,7 +266,10 @@ class Game(Optimizer):
                     case 4:
                         self.answer = num_1 ** num_2
                         time.sleep(1)
-                        self.userinput = int(input("Question {2}: {0} ^ {1} =? ".format(num_1, num_2, num_of_ques)))
+                        try:
+                            self.userinput = int(input("Question {2}: {0} ^ {1} =? ".format(num_1, num_2, num_of_ques)))
+                        except TypeError:
+                            raise TypeError("Try an Integer or Float number")
                         if self.userinput == self.answer:
                             self.increment()
                         else:
@@ -263,7 +278,10 @@ class Game(Optimizer):
                     case 5:
                         self.answer = num_1 / num_2
                         time.sleep(1)
-                        self.userinput = float(input("Question {2}: {0} / {1} =? ".format(num_1, num_2, num_of_ques)))
+                        try:
+                            self.userinput = float(input("Question {2}: {0} / {1} =? ".format(num_1, num_2, num_of_ques)))
+                        except Exception:
+                            raise TypeError("Try an Integer or Float number")
                         if self.userinput == self.answer:
                             self.increment()
                         else:
@@ -277,7 +295,10 @@ class Game(Optimizer):
                         self.answer = num_2 % num_1
                         time.sleep(1)
                         # print("This returns a remainder")
-                        self.userinput = float(input("Question {2}: {0} % {1} =? ".format(num_2, num_1, num_of_ques)))
+                        try:
+                            self.userinput = float(input("Question {2}: {0} % {1} =? ".format(num_2, num_1, num_of_ques)))
+                        except Exception:
+                            raise TypeError("Try an Integer or Float number")
                         if self.userinput == self.answer:
                             self.increment()
                         else:
