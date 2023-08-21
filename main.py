@@ -105,7 +105,6 @@ class Optimizer:
             # print(f"You answered {self.incorrect} questions in-correctly")
             print(f"Wait for 5 secs to move to Level {self.level+1}...")
             time.sleep(5)
-        self.clean()
         self.level = int(input(f"\n\t\t\t\t\t<<<<< Press {self.temp_level} to start  L E V E L  {self.temp_level}  of  {self.difficulty()} >>>>>\n"))
         if self.level == 1:
             print("\t\t\t\t\t\t\t\t\t H e l l o  {}\n".format(self.username))
@@ -144,7 +143,6 @@ class Optimizer:
                 else:
                     self.score = self.temp_score[self.start]
                     self.counter = self.temp_counter[self.start]
-            self.clean()
             print(f"A T  T H E  E N D  O F  {self.difficulty()}  L E V E L  {self.level}")
             print(f"Your correct answer is {self.correct} but you can't proceed to the next level")
             # print(f"You answered {self.incorrect} questions in-correctly")
@@ -161,7 +159,6 @@ class Optimizer:
             self.correct = self.start
             self.temp_level = self.initial
             self.counter = self.start
-            self.clean()
             print(f"A T  T H E  E N D  O F  L E V E L  {self.level}  O F  {self.difficulty()}\n{self.display_score()}")
             self.action += 1
             if self.action >= self.max_action:
@@ -308,7 +305,7 @@ class Game(Optimizer):
                 '''print(f"Temp_Level_Counter: {self.temp_level}")
                 print(f"Counter: {self.counter}")
                 print(f"Action: {self.action}")
-                print(f"End: {self.end}")
+                
                 if self.correct <= self.initial:
                     print(f"You answered {self.correct} Correct answer out of 10")
                 else:
@@ -317,7 +314,8 @@ class Game(Optimizer):
                 if self.incorrect <= self.initial:
                     print(f"You answered {self.incorrect} question in-correctly")
                 else:
-                    print(f"You answered {self.incorrect} questions in-correctly")'''
+                    print(f"You answered {self.incorrect} questions in-correctly")
+                '''
                 # Debugging ends here
 
                 if num_of_ques == self.max_level*2:
