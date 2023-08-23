@@ -216,7 +216,7 @@ class Game(Optimizer):
             print("\n\t\t\t\t\t\tW e l c o m e  t o  {}  L e v e l  {}\n".format(self.difficulty(), self.level))
             for num_of_ques in range(1, 11): # Testing Remove from 3 to be changed to 11
                 self.counter += self.initial
-                if self.end == 10:
+                if self.end == self.max_count//2:
                     self.end = 0
                 self.end += self.initial
                 num_1 = rd.randint(self.start+self.level, (3*self.level)+self.end)
@@ -302,10 +302,10 @@ class Game(Optimizer):
                             self.decrement()
 
                 # For debugging
-                '''print(f"Temp_Level_Counter: {self.temp_level}")
+                print(f"Temp_Level_Counter: {self.temp_level}")
                 print(f"Counter: {self.counter}")
                 print(f"Action: {self.action}")
-                
+                print(f"End: {self.end}")
                 if self.correct <= self.initial:
                     print(f"You answered {self.correct} Correct answer out of 10")
                 else:
@@ -315,7 +315,7 @@ class Game(Optimizer):
                     print(f"You answered {self.incorrect} question in-correctly")
                 else:
                     print(f"You answered {self.incorrect} questions in-correctly")
-                '''
+
                 # Debugging ends here
 
                 if num_of_ques == self.max_level*2:
