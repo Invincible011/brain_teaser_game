@@ -302,7 +302,7 @@ class Game(Optimizer):
                             self.decrement()
 
                 # For debugging
-                print(f"Temp_Level_Counter: {self.temp_level}")
+                '''print(f"Temp_Level_Counter: {self.temp_level}")
                 print(f"Counter: {self.counter}")
                 print(f"Action: {self.action}")
                 print(f"End: {self.end}")
@@ -315,7 +315,7 @@ class Game(Optimizer):
                     print(f"You answered {self.incorrect} question in-correctly")
                 else:
                     print(f"You answered {self.incorrect} questions in-correctly")
-
+'''
                 # Debugging ends here
 
                 if num_of_ques == self.max_level*2:
