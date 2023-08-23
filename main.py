@@ -129,7 +129,7 @@ class Optimizer:
         self.initial = self.start+1
         if self.correct < 5:
             # Track the recent score and store it then display the recent score if correct answer is less than 5
-            if self.action == self.start and self.level == self.initial:
+            if self.action == self.start and self.level == self.initial: # this returns True for level = Easy and 1
                 self.score = self.start
                 self.counter = self.start
             elif self.action >= self.initial and self.level == self.initial:
