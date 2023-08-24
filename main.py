@@ -19,7 +19,7 @@ class Optimizer:
 
     def initialise(self):
         self.clean()
-        return "\t\t\t\t\t< < < W E L C O M E  T O  B R A I N  T E A S E R  G A M E > > >\n\n"
+        return "< < < W E L C O M E  T O  B R A I N  T E A S E R  G A M E > > >\n\n"
 
     def user_details(self):
         self.username = input("Enter your Username? ").upper()
@@ -28,11 +28,11 @@ class Optimizer:
 
     def startup_info(self):
         if self.time < 12:
-            return f'\n\t\t\t\t\t\tG o o d  M o r n i n g: "{self.username}"'
+            return f'\nG o o d  M o r n i n g: "{self.username}"'
         elif self.time <= 14:
-            return f'\n\t\t\t\t\t\tG o o d  A f t e r n o o n: "{self.username}"'
+            return f'\nG o o d  A f t e r n o o n: "{self.username}"'
         else: 
-            return f'\n\t\t\t\t\t\tG o o d  E v e n i n g: "{self.username}"'
+            return f'\nG o o d  E v e n i n g: "{self.username}"'
 
     def show_details(self):
         print(self.initialise())
@@ -103,16 +103,19 @@ class Optimizer:
             print(f"A T  T H E  E N D  O F  {self.difficulty()}  L E V E L  {self.level}")
             print(f"You answered {self.correct} questions correctly")
             # print(f"You answered {self.incorrect} questions in-correctly")
-            print(f"Wait for 5 secs to move to Level {self.level+1}...")
-            time.sleep(5)
-        self.level = int(input(f"\n\t\t\t\t\t<<<<< Press {self.temp_level} to start  L E V E L  {self.temp_level}  of  {self.difficulty()} >>>>>\n"))
+            print(f"Wait for 3 secs to move to Level {self.level+1}...")
+            time.sleep(2)
+        self.level = int(input(f"\nPress {self.temp_level} to start  L E V E L  {self.temp_level}  of  {self.difficulty()}\n"))
         if self.level == 1:
-            print("\t\t\t\t\t\t\t\t\t H e l l o  {}\n".format(self.username))
-            print(f"\t\t\t A T  T H E  B E G I N N I N G  O F  {self.difficulty()}  L E V E L  {self.level},  {self.display_score()}")
+            while self.username == 'user'.upper() or self.username == "":
+                print("Hi  A N O N Y M O U S")
+                self.username = input("What would you like to change your name to? ").upper()
+            print("H e l l o  {}\n".format(self.username))
+            print(f"A T  T H E  B E G I N N I N G  O F  {self.difficulty()}  L E V E L  {self.level},  {self.display_score()}")
         else:
             if self.level > 1:
                 self.level -= 1
-                print(f"\t\t\t A T  T H E  E N D  O F  {self.difficulty()}  L E V E L  {self.level},  {self.display_score()}")
+                print(f"A T  T H E  E N D  O F  {self.difficulty()}  L E V E L  {self.level},  {self.display_score()}")
                 self.level += 1
 
     def reset_action(self):
@@ -136,7 +139,7 @@ class Optimizer:
                 self.counter = self.start
             elif self.action >= self.initial and self.level >= self.initial:
                 # Check if the temp_score list is empty, if null; add the recent score to the list
-                # else: assign the score to the first index of the temp_score list (Last_Seen)  
+                # else: assign the score to the first index of the temp_score list (Last_Seen)
                 if self.temp_score == []:
                     self.temp_score.append(self.score)
                     self.temp_counter.append(self.counter)
@@ -164,14 +167,14 @@ class Optimizer:
             if self.action >= self.max_action:
                 self.action = self.max_action
             if self.action == self.max_action:
-                self.level = int(input("\t\t\t\t\t<<<<< P r e s s  1  t o  c o n t i n u e  p l a y i n g >>>>>\n"))
-                print("\t\t\t\t\t\t\tO R")
-                self.level = int(input("\t\t\t\t\t<<<<< Do you want to restart the game? if YES press 1 otherwise press any key to exit >>>>>\n"))
+                self.level = int(input("P r e s s  1  t o  c o n t i n u e  p l a y i n g >>> \n"))
+                print("O R")
+                self.level = int(input("Do you want to restart the game? \nIf YES press 1 otherwise press any key to exit >>> "))
                 if self.level == self.initial:
                     self.root_level()
                 else:
                     exit()
-            self.level = int(input("\t\t\t\t\t<<<<< P r e s s  1  t o  c o n t i n u e  p l a y i n g >>>>>\n"))
+            self.level = int(input("P r e s s  1  t o  c o n t i n u e  p l a y i n g >>> \n"))
             if self.level == self.initial:
                 self.root_level()
         else:
@@ -213,7 +216,7 @@ class Game(Optimizer):
         self.correct = self.start
         self.incorrect = self.start
         if self.level == self.temp_level:
-            print("\n\t\t\t\t\t\tW e l c o m e  t o  {}  L e v e l  {}\n".format(self.difficulty(), self.level))
+            print("\nW e l c o m e  t o  {}  L e v e l  {}\n".format(self.difficulty(), self.level))
             for num_of_ques in range(1, 11): # Testing Remove from 3 to be changed to 11
                 self.counter += self.initial
                 if self.end == self.max_count//2:
@@ -230,7 +233,7 @@ class Game(Optimizer):
                         try:
                             self.userinput = int(input("Question {2}: {0} + {1} =? ".format(num_1, num_2, num_of_ques)))
                         except Exception:
-                            raise TypeError("Try an Integer or Float number")
+                            raise ValueError("Try an Integer or Float number")
                         if self.userinput == self.answer:
                             self.increment()
                         else:
@@ -242,7 +245,7 @@ class Game(Optimizer):
                         try:
                             self.userinput = int(input("Question {2}: {0} - {1} =? ".format(num_1, num_2, num_of_ques)))
                         except Exception:
-                            raise TypeError("Try an Integer or Float number")
+                            raise ValueError("Try an Integer or Float number")
                         if self.userinput == self.answer:
                             self.increment()
                         else:
@@ -254,7 +257,7 @@ class Game(Optimizer):
                         try:
                             self.userinput = int(input("Question {2}: {0} * {1} =? ".format(num_1, num_2, num_of_ques)))
                         except Exception:
-                            raise TypeError("Try an Integer or Float number")
+                            raise ValueError("Try an Integer or Float number")
                         if self.userinput == self.answer:
                             self.increment()
                         else:
@@ -266,7 +269,7 @@ class Game(Optimizer):
                         try:
                             self.userinput = int(input("Question {2}: {0} ^ {1} =? ".format(num_1, num_2, num_of_ques)))
                         except TypeError:
-                            raise TypeError("Try an Integer or Float number")
+                            raise ValueError("Try an Integer or Float number")
                         if self.userinput == self.answer:
                             self.increment()
                         else:
@@ -278,7 +281,7 @@ class Game(Optimizer):
                         try:
                             self.userinput = float(input("Question {2}: {0} / {1} =? ".format(num_1, num_2, num_of_ques)))
                         except Exception:
-                            raise TypeError("Try an Integer or Float number")
+                            raise ValueError("Try an Integer or Float number")
                         if self.userinput == self.answer:
                             self.increment()
                         else:
@@ -295,7 +298,7 @@ class Game(Optimizer):
                         try:
                             self.userinput = float(input("Question {2}: {0} % {1} =? ".format(num_2, num_1, num_of_ques)))
                         except Exception:
-                            raise TypeError("Try an Integer or Float number")
+                            raise ValueError("Try an Integer or Float number")
                         if self.userinput == self.answer:
                             self.increment()
                         else:
@@ -332,7 +335,7 @@ class Game(Optimizer):
                         self.counter = self.temp_counter[self.start]
                     self.update_level()
         else:
-            self.level = int(input("\t\t\t\t\t<<<<< Press any key to exit or \"1\" to restart the game again?  >>>>>\n"))
+            self.level = int(input("Press any key to exit or \"1\" to restart the game again? \n"))
             if self.level != self.initial:
                 exit()
             else:
