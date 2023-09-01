@@ -5,6 +5,8 @@ import time
 
 # This is a brain teaser game
 # Check "README.md" to know more about the full functionalities.
+
+
 class Optimizer:
     def __init__(
             self,
@@ -99,15 +101,16 @@ class Optimizer:
 
     # Recursive call on level for each action {0: Easy, 1: Medium, 2: Hard}
     def report_level(self):
-        if self.correct >= 5:
+        self.max_correct_answer = int(0.2*self.max_count/2)
+        if self.correct >= self.max_correct_answer:
             print(f"A T  T H E  E N D  O F  {self.difficulty()}  L E V E L  {self.level}")
             print(f"You answered {self.correct} questions correctly")
             # print(f"You answered {self.incorrect} questions in-correctly")
             print(f"Wait for 3 secs to move to Level {self.level+1}...")
-            time.sleep(1)
+            time.sleep(2)
         self.level = int(input(f"\nPress {self.temp_level} to start  L E V E L  {self.temp_level}  of  {self.difficulty()}\n"))
         if self.level == 1:
-            while self.username == 'user'.upper() or self.username == "":
+            while self.username == 'user'.upper() or self.username == "" :
                 print("Hi  A N O N Y M O U S")
                 self.username = input("What would you like to change your name to? ").upper()
             print("H e l l o  {}\n".format(self.username))
@@ -130,7 +133,7 @@ class Optimizer:
     # AI code & check-loops
     def update_level(self):
         self.initial = self.start+1
-        if self.correct < 5:
+        if self.correct < self.max_correct_answer:
             # Track the recent score and store it then display the recent score if correct answer is less than 5
             if self.action == self.start and self.level == self.initial: # this returns True for level = Easy and 1
                 self.score = self.start
