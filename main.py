@@ -318,7 +318,7 @@ class Game(Optimizer):
                     print(f"You answered {self.incorrect} question in-correctly")
                 else:
                     print(f"You answered {self.incorrect} questions in-correctly")
-'''
+                '''
                 # Debugging ends here
 
                 if num_of_ques == self.max_level*2:
