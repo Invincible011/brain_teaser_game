@@ -32,7 +32,7 @@ class Optimizer:
             return f'\nG o o d  M o r n i n g: "{self.username}"'
         elif self.time <= 14:
             return f'\nG o o d  A f t e r n o o n: "{self.username}"'
-        else: 
+        else:
             return f'\nG o o d  E v e n i n g: "{self.username}"'
 
     def show_details(self):
