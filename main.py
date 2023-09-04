@@ -1,6 +1,6 @@
 import random as rd
 import time
-from access import Optimizer
+from assest import Optimizer
 
 class Game(Optimizer):
     def __init__(
