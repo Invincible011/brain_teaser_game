@@ -13,21 +13,15 @@ class Optimizer:
             ):
         self.username = userinput
         self.time = int(timer.now().strftime("%H"))
-    
-    @staticmethod
-    def clean():
-        os.system('cls')
 
     def initialise(self):
-        self.clean()
+        os.system('cls')
         return "< < < W E L C O M E  T O  B R A I N  T E A S E R  G A M E > > >\n\n"
 
-    def user_details(self):
+    def startup_info(self):
         self.username = input("Enter your Username? ").upper()
         if self.username == "":
             self.username = "USER"
-
-    def startup_info(self):
         if self.time < 12:
             return f'\nG o o d  M o r n i n g: "{self.username}"'
         elif self.time <= 14:
@@ -37,7 +31,6 @@ class Optimizer:
 
     def show_details(self):
         print(self.initialise())
-        self.user_details()
         print(self.startup_info())
 
     def display_score(self):
