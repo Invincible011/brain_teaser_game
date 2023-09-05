@@ -16,7 +16,6 @@ class Game(Optimizer):
         self.answer = answer
         self.level = level
         self.counter = counter
-        # Unpacking tuple
         self.start, self.end, self.action, self.correct, self.incorrect, self.temp_level  = ((0,) * 6)
         self.max_count = 50
         self.max_level = 5
@@ -27,17 +26,15 @@ class Game(Optimizer):
     def root_level(self):
         self.initial = self.start+1
         if self.level == self.start:
-            # Reset Temporary Level
             self.temp_level = self.initial
             self.show_details()
-        # Reset action mode
         self.reset_action()
         self.report_level()
         self.correct = self.start
         self.incorrect = self.start
         if self.level == self.temp_level:
             print("\nW e l c o m e  t o  {}  L e v e l  {}\n".format(self.difficulty(), self.level))
-            for num_of_ques in range(1, 11): # Testing Remove from 3 to be changed to 11
+            for num_of_ques in range(1, 11):
                 self.counter += self.initial
                 if self.end == self.max_count//2 - self.max_level:
                     self.end = 0
