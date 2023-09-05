@@ -55,7 +55,6 @@ class Optimizer:
         print("\nT H E  A N S W E R  I S  C O R R E C T\n")
         print(f"{self.display_score()}\n")
 
-    # Score increment and decrement.
     def decrement_score_by_3(self):
         self.score -= self.max_action
         self.incorrect += self.initial
@@ -74,7 +73,6 @@ class Optimizer:
         print(f"\nT H E  A N S W E R  I S  I N C O R R E C T\nT H E  C O R R E C T  A N S W E R  I S = {self.answer}\n")
         print(f"{self.display_score()}\n")
 
-    # implement score increment and decrement
     def increment(self):
         if self.action <= self.initial:
             self.increment_score_by_5()
@@ -89,7 +87,6 @@ class Optimizer:
         else:
             self.decrement_score_by_5()
 
-    # Return the Level Difficulty base on the action mode
     def difficulty(self):
         if self.action == self.start:
             return "E A S Y  D I F F I C U L T Y"
@@ -98,7 +95,6 @@ class Optimizer:
         else:
             return "H A R D  D I F F I C U L T Y"
 
-    # Recursive call on level for each action {0: Easy, 1: Medium, 2: Hard}
     def report_level(self):
         self.max_correct_answer = int(0.2 * self.max_count / 2)
         if self.correct >= self.max_correct_answer:
@@ -131,17 +127,13 @@ class Optimizer:
     
     # AI code & check-loops
     def update_level(self):
-        self.initial = self.initial()
         if self.correct < self.max_correct_answer:
-            # Track the recent score and store it then display the recent score if correct answer is less than 5
-            if self.action == self.start and self.level == self.initial: # this returns True for level = Easy and 1
+            if self.action == self.start and self.level == self.initial:
                 self.score = self.start
                 self.counter = self.start
             elif self.action >= self.initial and self.level == self.initial:
                 self.counter = self.start
             elif self.action >= self.initial and self.level >= self.initial:
-                # Check if the temp_score list is empty, if null; add the recent score to the list
-                # else: assign the score to the first index of the temp_score list (Last_Seen)
                 if self.temp_score == []:
                     self.temp_score.append(self.score)
                     self.temp_counter.append(self.counter)
@@ -152,12 +144,11 @@ class Optimizer:
             print(f"Your correct answer is {self.correct} but you can't proceed to the next level")
             # print(f"You answered {self.incorrect} questions in-correctly")
             print(f"Wait for 5 secs to restart {self.difficulty()} Level_{self.level} . . .")
-            time.sleep(self.max_level)   
+            time.sleep(self.max_level)
             self.score
             self.correct = self.start
             self.incorrect = self.start
             self.root_level()
-        # Check if the counter has exceeded max_count
         if self.counter >= self.max_count:
             self.counter = self.max_count
         if self.counter == self.max_count and self.temp_level == self.max_level:
