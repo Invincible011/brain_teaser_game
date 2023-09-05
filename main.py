@@ -39,7 +39,7 @@ class Game(Optimizer):
             print("\nW e l c o m e  t o  {}  L e v e l  {}\n".format(self.difficulty(), self.level))
             for num_of_ques in range(1, 11): # Testing Remove from 3 to be changed to 11
                 self.counter += self.initial
-                if self.end == int(self.max_count/2 - self.max_level):
+                if self.end == self.max_count//2 - self.max_level:
                     self.end = 0
                 self.end += self.initial
                 num_1 = rd.randint(self.start+self.level, (3*self.level)+self.end)
