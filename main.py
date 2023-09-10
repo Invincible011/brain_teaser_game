@@ -5,8 +5,8 @@ from asset import Optimizer
 class Game(Optimizer):
     def __init__(
             self, 
-            username ='', 
-            score = 0, 
+            username ='',
+            score = 0,
             answer = 0,
             level = 0,
             counter = 0
