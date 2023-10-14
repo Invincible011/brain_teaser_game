@@ -134,7 +134,7 @@ class Optimizer:
                     self.score = self.temp_score[self.start]
                     self.counter = self.temp_counter[self.start]
             print(f"A T  T H E  E N D  O F  {self.difficulty()}  L E V E L  {self.level}")
-            print(f"Your correct answer is {self.correct} but you can't proceed to the next level")
+            print(f"Your correct answer is {self.correct} but you can't proceed to level {self.level+1}")
             # print(f"You answered {self.incorrect} questions in-correctly")
             print(f"Wait for 5 secs to restart {self.difficulty()} Level_{self.level} . . .")
             time.sleep(self.max_level)
