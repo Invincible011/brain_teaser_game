@@ -3,7 +3,7 @@ This is a BRAIN TEASER GAME. It tests students of knowledge from the age of 6 - 
 
 
 '''
-### This is a Brain Teaser Game Project Vers. 1.0
+# This is a Brain Teaser Game Project Vers. 1.0
     
     Note: Refractor the code, any reuseable code should be invoked when needed, and avoid repetition.
 
