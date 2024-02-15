@@ -140,7 +140,12 @@ class Optimizer:
             time.sleep(self.max_level)
             self.score
             self.correct = self.start
+            
+            
+            
+            
             self.incorrect = self.start
+
             self.root_level()
         if self.counter >= self.max_count:
             self.counter = self.max_count
